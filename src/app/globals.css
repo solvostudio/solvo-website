@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  /* Solvo brand tokens — vedi project_solvo_brand_visual.md */
+  --color-bg-primary: #FAF8F4;
+  --color-bg-subtle: #F0EDE5;
+  --color-text-primary: #161616;
+  --color-text-secondary: #5A5A5A;
+  --color-ink: #020D4A;
+  --color-ink-deep: #1A2B6E;
+  --color-amber: #C9933C;
+  --color-border: #E8E2D6;
+
+  /* Tipografia */
+  --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+
+  /* Spaziatura editoriale */
+  --spacing-section: 6rem;
+  --spacing-section-sm: 4rem;
+}
+
+@layer base {
+  html {
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-bg-primary);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    letter-spacing: -0.01em;
+  }
+
+  /* Inverte i titoli quando sono dentro un blocco ink */
+  .section-ink h1,
+  .section-ink h2,
+  .section-ink h3,
+  .section-ink h4 {
+    color: var(--color-bg-primary);
+  }
+
+  /* Italic Newsreader signature: parole-perno nei titoli */
+  h1 em, h2 em, h3 em {
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  /* Punto signature ambra — uso: <span class="dot">.</span> */
+  .dot {
+    color: var(--color-amber);
+    font-style: normal;
+  }
+
+  /* Hairline divider */
+  .hairline {
+    border-color: var(--color-border);
+  }
+}
