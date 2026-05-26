@@ -4,43 +4,43 @@ Diario di sotto-sessione del progetto sito. Entry più recente in alto.
 
 ---
 
-## 2026-05-26 — Spostamento OneDrive → ~/Code/ (incident recovery)
+## 2026-05-26 — Incident OneDrive + consolidamento paths definitivi
 
-**Status:** sito spostato da OneDrive a path locale. Tutto funzionante.
+**Status:** codice tornato in `/Solvo/website/` (decisione di Andrea), repo Git pushato su GitHub privato come backup remoto vero.
 
-### Cosa è successo
+### Timeline della giornata
 
-OneDrive Personale è temporaneamente sparito come mount dal Mac. Tutta la cartella `Claude/` (sito compreso) era inaccessibile da terminale. Quando OneDrive è tornato, abbiamo deciso di spostare il sito **fuori** dalla cartella sincronizzata: `node_modules` (decine di migliaia di file) e `.next` (riscritti continuamente da Turbopack) sono **antipattern** in cartelle sync.
+1. **Mattina:** mount OneDrive Personale temporaneamente sparita dal Mac, cartella `website/` apparsa svuotata.
+2. **Primo tentativo:** ricostruito scaffolding in `~/Code/solvo-website/` (fuori OneDrive) per evitare ricaduta dell'antipattern Node+sync.
+3. **OneDrive tornato:** rsync `/Solvo/website/` originale → `~/Code/` preservando git history (3 commit).
+4. **Discussione con Andrea sulla regola "tutto in cartella Claude":** Andrea chiede di rimettere il codice in `/Solvo/`. Eccezione fuori-Claude non giustificata abbastanza per la sua organizzazione.
+5. **Test symlink (`node_modules` e `.next` puntati a `~/Library/Caches/solvo-website/`):** `npm install` ha sovrascritto il symlink con cartella reale → strategia fragile.
+6. **Decisione finale di Andrea:** codice in `/Solvo/website/`, accetta sync di `node_modules` (56MB + ri-sync ad ogni install) per mantenere ordine.
+7. **Push remoto GitHub:** `gh repo create solvostudio/solvo-website --private --source=. --remote=origin --push` ✓. Backup vero indipendente da OneDrive.
+8. **Cleanup:** `~/Code/` rimossa (cartelle spostate in /tmp). Pointer `/Solvo/website_MOVED.md` rimosso.
 
-### Mossa eseguita
+### Paths definitivi
 
-1. `mv ~/Code/solvo-website` → `~/Code/solvo-website.recon_backup` (backup defensivo di una ricostruzione fatta nel frattempo)
-2. `rsync -a --exclude='node_modules' --exclude='.next' --exclude='tsconfig.tsbuildinfo' --exclude='next-env.d.ts'` da `/Solvo/website/` → `~/Code/solvo-website/`
-3. `npm install` nel nuovo path
-4. `npm run build` → ✓ 5 pagine statiche prerendered
-5. Dev server up su :3939
-6. Pointer permanente lasciato in `/Solvo/website_MOVED.md` (OneDrive)
+- **Working copy**: `/Users/drog/Library/CloudStorage/OneDrive-Personale/Claude/Solvo/website/` (OneDrive, cartella Claude)
+- **node_modules + .next**: cartelle reali dentro la working copy, sincronizzate da OneDrive (trade-off accettato)
+- **Repo remoto**: `github.com/solvostudio/solvo-website` (privato, backup vero)
+- **Asset brand**: `/Solvo/brand-visual/` (come sempre)
 
-### Cleanup ancora da eseguire (rm -rf bloccato da policy)
-
-```bash
-rm -rf "/Users/drog/Library/CloudStorage/OneDrive-Personale/Claude/Solvo/website"
-rm -rf ~/Code/solvo-website.recon_backup
-```
-
-### Git history preservata
+### Git history (locale + remoto)
 
 ```
+dc3481c chore: progetto spostato OneDrive → ~/Code, WORKLOG aggiornato
 5451847 fix: titoli visibili dentro sezioni ink + README e WORKLOG
 625cec1 chore: scaffolding iniziale sito Solvo
 ```
 
-### Pattern operativo consolidato
+Tutta su `origin/main`.
 
-- **Codice**: `~/Code/solvo-website/`
-- **Asset brand**: `/Solvo/brand-visual/` (OneDrive)
-- **Cross-reference**: quando il sito ha bisogno di un asset, `cp` dal path OneDrive a `~/Code/.../public/`
-- Memoria aggiornata: [[project_solvo_website]], [[feedback_onedrive_node_antipattern]]
+### Regola consolidata
+
+Le cartelle di lavoro Claude vivono in **OneDrive `/Claude/`** anche se sono progetti Node. Le esperienze (es. file scomparsi del 26/05) restano eccezioni; la sicurezza del codice passa da **GitHub** come backup remoto, non da spostamenti fuori cartella Claude.
+
+Eccezione fuori-Claude solo se davvero giustificata caso per caso.
 
 ---
 
