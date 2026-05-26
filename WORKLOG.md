@@ -4,6 +4,46 @@ Diario di sotto-sessione del progetto sito. Entry più recente in alto.
 
 ---
 
+## 2026-05-26 — Spostamento OneDrive → ~/Code/ (incident recovery)
+
+**Status:** sito spostato da OneDrive a path locale. Tutto funzionante.
+
+### Cosa è successo
+
+OneDrive Personale è temporaneamente sparito come mount dal Mac. Tutta la cartella `Claude/` (sito compreso) era inaccessibile da terminale. Quando OneDrive è tornato, abbiamo deciso di spostare il sito **fuori** dalla cartella sincronizzata: `node_modules` (decine di migliaia di file) e `.next` (riscritti continuamente da Turbopack) sono **antipattern** in cartelle sync.
+
+### Mossa eseguita
+
+1. `mv ~/Code/solvo-website` → `~/Code/solvo-website.recon_backup` (backup defensivo di una ricostruzione fatta nel frattempo)
+2. `rsync -a --exclude='node_modules' --exclude='.next' --exclude='tsconfig.tsbuildinfo' --exclude='next-env.d.ts'` da `/Solvo/website/` → `~/Code/solvo-website/`
+3. `npm install` nel nuovo path
+4. `npm run build` → ✓ 5 pagine statiche prerendered
+5. Dev server up su :3939
+6. Pointer permanente lasciato in `/Solvo/website_MOVED.md` (OneDrive)
+
+### Cleanup ancora da eseguire (rm -rf bloccato da policy)
+
+```bash
+rm -rf "/Users/drog/Library/CloudStorage/OneDrive-Personale/Claude/Solvo/website"
+rm -rf ~/Code/solvo-website.recon_backup
+```
+
+### Git history preservata
+
+```
+5451847 fix: titoli visibili dentro sezioni ink + README e WORKLOG
+625cec1 chore: scaffolding iniziale sito Solvo
+```
+
+### Pattern operativo consolidato
+
+- **Codice**: `~/Code/solvo-website/`
+- **Asset brand**: `/Solvo/brand-visual/` (OneDrive)
+- **Cross-reference**: quando il sito ha bisogno di un asset, `cp` dal path OneDrive a `~/Code/.../public/`
+- Memoria aggiornata: [[project_solvo_website]], [[feedback_onedrive_node_antipattern]]
+
+---
+
 ## 2026-05-22 — Sotto-sessione 5a (autonomous): scaffolding MVP v1
 
 **Status:** scaffolding completo, sito gira in locale, **non pubblicato**.
