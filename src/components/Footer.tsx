@@ -12,7 +12,7 @@ export function Footer() {
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-[var(--color-bg-primary)]/70">
               Operating Partner per founder e scale-up. Vendite, finanza,
-              tecnologia &mdash; con la stessa mano.
+              tecnologia, con la stessa mano.
             </p>
           </div>
 
@@ -55,11 +55,6 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="tel:+393923638523" className="hover:underline">
-                  +39 392 363 8523
-                </a>
-              </li>
-              <li>
                 <a
                   href="https://www.linkedin.com/in/andreadroghetti"
                   target="_blank"
@@ -75,7 +70,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-[var(--color-bg-primary)]/15 pt-8 text-xs text-[var(--color-bg-primary)]/50 md:flex-row md:items-center">
           <div>
-            &copy; {new Date().getFullYear()}{" "}Solvo &mdash; brand commerciale
+            &copy; {new Date().getFullYear()}{" "}Solvo, brand commerciale
             di Andrea Droghetti.
           </div>
           <div>solvo.studio</div>

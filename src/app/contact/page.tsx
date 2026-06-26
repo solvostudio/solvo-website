@@ -9,12 +9,6 @@ const CHANNELS = [
     note: "La via più diretta. Rispondo entro 24h nei giorni lavorativi.",
   },
   {
-    label: "Telefono",
-    value: "+39 392 363 8523",
-    href: "tel:+393923638523",
-    note: "Per cose urgenti o se preferisci sentirci a voce.",
-  },
-  {
     label: "LinkedIn",
     value: "in/andreadroghetti",
     href: "https://www.linkedin.com/in/andreadroghetti",

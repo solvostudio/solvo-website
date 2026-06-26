@@ -13,7 +13,7 @@ export default function InsightsPage() {
         <p className="mt-8 text-lg leading-relaxed text-[var(--color-text-secondary)] text-pretty md:text-xl">
           Qui pubblicherò case study, framework operativi, riflessioni su
           founder economy, M&amp;A, AI applicata e dintorni. Non un blog di
-          opinioni — note di campo da chi sta dentro alle decisioni.
+          opinioni: note di campo da chi sta dentro alle decisioni.
         </p>
         <p className="mt-6 text-sm text-[var(--color-text-secondary)]">
           Apertura prevista: fine 2026.

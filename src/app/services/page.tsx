@@ -15,9 +15,9 @@ const SERVICES = [
   {
     title: "Progetti verticali",
     bullets: [
-      "Setup finance — 6-12K€",
-      "AI strategy — 10-20K€",
-      "M&A advisory — 15-40K€",
+      "Setup finance: 6-12K€",
+      "AI strategy: 10-20K€",
+      "M&A advisory: 15-40K€",
     ],
     body: "Scope chiuso, durata e deliverable definiti in partenza. La forma giusta quando il problema è circoscritto e va risolto bene una volta sola.",
   },
@@ -88,16 +88,22 @@ export default function ServicesPage() {
           </div>
           <div className="space-y-6 text-[var(--color-text-primary)]">
             <p className="text-pretty">
-              La tariffa di riferimento Solvo è <strong>150€/ora</strong>. Da
-              lì derivano day rate (1200€), retainer da 10h (1500€) o 20h
-              (2700€), e i pacchetti project-based.
+              La tariffa oraria di riferimento è <strong>150€/ora</strong>. È
+              il punto di partenza: su pacchetti orari continuativi la tariffa
+              scende, e le modalità di ingaggio si combinano spesso tra loro.
             </p>
             <p className="text-pretty">
-              Per i progetti con risultato misurabile (deal closing, capital
-              raise, exit) la struttura include sempre una{" "}
-              <strong>success fee</strong>: tipicamente il 10% del valore
-              realizzato. Non per tutti i clienti — solo dove ha senso e dove
-              i risultati sono attribuibili.
+              Day rate, retainer mensili e progetti a scope chiuso (da 6K€) si
+              definiscono caso per caso, in funzione di durata, intensità e
+              deliverable. L&apos;ordine di grandezza te lo do già alla prima
+              call.
+            </p>
+            <p className="text-pretty">
+              Sui risultati misurabili (deal closing, capital raise, exit,
+              introduzioni) la struttura include una{" "}
+              <strong>success fee o referral fee di riferimento tra il 10% e
+              il 20%</strong>, calibrata su ruolo e rischio. Solo dove i
+              risultati sono attribuibili.
             </p>
             <div className="border-t border-[var(--color-border)] pt-6">
               <Link

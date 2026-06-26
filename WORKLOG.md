@@ -4,6 +4,62 @@ Diario di sotto-sessione del progetto sito. Entry più recente in alto.
 
 ---
 
+## 2026-06-26 — Copy reale home: posizionamento confermato + sezione clienti
+
+**Status:** home riscritta con copy reale (non più placeholder), build + typecheck clean, screenshot ok. Non ancora pubblicata. Pagine `/services`, `/contact`, `/andrea` ancora con copy placeholder da rivedere.
+
+### Decisioni di Andrea (questa sessione)
+
+1. **Posizionamento confermato: "Operating Partner dei founder".** Scartata la proposta alternativa "aiutare le aziende italiane a migliorare la produttività" (giudicata commodity, generica, e amplificava la dispersione invece di curarla). Il ruolo unifica le tre leve (vendite/finanza/tecnologia); target = founder/scale-up e imprenditori, non PMI tradizionali.
+2. **Sezione "Dove opero oggi" con nomi espliciti:** ShadApps · Startax · SMACE · Wonders, ciascuno con riga di ruolo onesta. Framing "realtà dentro cui lavoro", non "clienti" (più vero: contractor/consulente/socio, non clienti puri).
+3. **Metriche vanity rimosse** ("10+ anni", "3 aziende in portafoglio"): sostituite dalla striscia clienti reale come prova. Il blocco numeri non esiste più.
+4. **Em-dash ripuliti** da tutto il copy home (regola di stile Andrea).
+
+### Modifiche fatte
+
+- `src/app/page.tsx` riscritto: nuovo hero, pilastri invariati nella sostanza, blocco METRICS → blocco CLIENTS su `tone="ink"` (#020D4A, dà block presence), modalità ingaggio e CTA ripuliti.
+- Verifiche: `npx tsc --noEmit` clean, `npm run build` 7 pagine statiche ok, screenshot full-page `/tmp/solvo-home.png` validato.
+
+### Struttura sito vs lista contenuti Andrea (target "live semplice")
+
+- intro generale → hero ✓
+- cosa facciamo → pilastri + `/services` ✓
+- chi è già cliente → sezione "Dove opero oggi" ✓ (fatta)
+- servizi e prezzi → `/services` (copy placeholder, da rivedere)
+- contatti → `/contact` (copy placeholder, da rivedere)
+- blog → `/insights` coming-soon, rimandato
+
+### Pagine interne riviste (stessa sessione)
+
+- `/services`: rimossi em-dash dai bullet prezzi (`:` al posto di `—`) e dalla riga success fee. Pricing 150€/h confermato.
+- `/andrea`: rimossa metrica gonfiata "10+ anni / tre aziende in portafoglio" → "Imprenditore seriale. Oggi opero dentro quattro realtà tra software, consulenza fiscale, eventi corporate e advisory." Rimossi em-dash dal blocco network.
+- `/contact`: ok. **Da verificare con Andrea prima del live: numero di telefono pubblico (+39 392 363 8523) ed email andrea@solvo.studio** (privacy/autenticità).
+- `layout.tsx` (title + OG), `Footer.tsx` (`&mdash;`), `insights`: tutti gli em-dash/`&mdash;` ripuliti. Audit finale: zero dash-family in testo visibile (solo nei commenti, irrilevante).
+
+### Rifinitura copy (decisioni Andrea, stessa sessione)
+
+- **Pricing `/services` → modello ibrido** (scelta Andrea): in chiaro la tariffa oraria di riferimento (150€/h) e la success/referral fee di riferimento **10-20%** (calibrata su ruolo e rischio). Day rate, retainer e progetti (da 6K€) presentati caso per caso, con nota esplicita che le modalità si combinano e che sui pacchetti orari la tariffa scende. NON si espongono le tariffe legacy scontate sui clienti storici (40/80/15€/h): sono relationship-specific, fuori dal listino pubblico.
+- **`/andrea` arricchita dal CV** (`Docs/Lavoro/Ricerca/CV e CL/CV_Andrea Droghetti.docx`): intro con "Founder di SMACE e Forbes Under 30 Italia 2023"; colonna Percorso (SMACE + Capgemini ERP Dynamics) / Riconoscimenti (Forbes) / Verticale / Formazione / Lingue; nuova sezione ink **"Track record"** con account espliciti gestiti in SMACE: Amazon, Bending Spoons, EY, Intesa Sanpaolo, Elite-Borsa Italiana. Framing onesto "negli anni di SMACE", non "clienti Solvo". NON portato sul sito l'About job-seeking del CV (healthtech/defensetech "seeking roles"): posizionamento diverso.
+- **Telefono pubblico rimosso** da `/contact` e Footer (decisione Andrea: lead gen solo email + LinkedIn). Numero si dà in privato dopo il primo contatto.
+
+### Backlog "Miglioramento sito web Solvo" (task ampia, sottotask da fare DOPO il go-live)
+
+Decise con Andrea il 2026-06-26, parcheggiate volutamente per non rallentare il live:
+
+1. **Form di contatto minimale** (nome, email, azienda opz., 1 riga need) via servizio no-backend (Web3Forms/Formspree → submission sulla mail di Andrea). Serve iscrizione gratuita di Andrea per la chiave. ~30-40 min di cablaggio.
+2. **Gallery foto** di Andrea con i clienti / sul campo, per ulteriore autorevolezza (`/andrea` o sezione dedicata). Da valutare disponibilità immagini.
+3. **Rassegna stampa**: articoli di giornale su Andrea e SMACE, come prova sociale.
+4. **SEO + GEO optimization**: spinta forte post-pubblicazione (search engine + generative engine optimization). Priorità alta una volta live.
+
+### Da fare per andare live
+
+1. ~~Rivedere copy pagine interne + pricing + bio~~ FATTO.
+2. Commit + push GitHub (repo già esistente `solvostudio/solvo-website`) — serve via libera Andrea.
+3. Import Vercel + preview (serve OK Andrea).
+4. DNS solvo.studio (serve OK Andrea, attenzione MX Workspace).
+
+---
+
 ## 2026-05-26 — Incident OneDrive + consolidamento paths definitivi
 
 **Status:** codice tornato in `/Solvo/website/` (decisione di Andrea), repo Git pushato su GitHub privato come backup remoto vero.
