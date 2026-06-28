@@ -67,5 +67,3 @@ Attualmente `robots: { index: false, follow: false }` in `app/layout.tsx`. Rimuo
 ## Riferimenti
 
 - Brand visual basics: `/Solvo/brand-visual/Solvo-brand-guidelines.pdf`
-- Carta strategica: `project_solvo_v01.md` (memoria)
-- Handoff sotto-sessione: `WORKLOG.md`
