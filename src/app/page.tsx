@@ -34,6 +34,14 @@ const CLIENTS = [
     name: "Wonders",
     role: "Advisory e M&A. Partnership sui servizi finance per i loro clienti.",
   },
+  {
+    name: "Blue Venture",
+    role: "Venture e private equity. Operazioni di investimento e deal del network.",
+  },
+  {
+    name: "Cognivra",
+    role: "Espansione in Arabia Saudita. Introduco aziende italiane nel mercato KSA.",
+  },
 ];
 
 export default function Home() {
@@ -95,10 +103,10 @@ export default function Home() {
       <Section tone="ink">
         <Eyebrow>Dove opero oggi</Eyebrow>
         <h2 className="max-w-3xl font-display text-3xl leading-tight tracking-tight text-balance md:text-4xl">
-          Non collaborazioni a slide: realtà dentro cui lavoro ogni
-          settimana<span className="dot">.</span>
+          Non collaborazioni a slide: realtà e partner con cui lavoro
+          davvero<span className="dot">.</span>
         </h2>
-        <div className="mt-16 grid gap-x-12 gap-y-10 md:grid-cols-2">
+        <div className="mt-16 grid gap-x-12 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           {CLIENTS.map((c) => (
             <div
               key={c.name}
