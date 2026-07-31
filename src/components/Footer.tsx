@@ -11,8 +11,8 @@ export function Footer() {
               Solvo<span className="dot">.</span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-[var(--color-bg-primary)]/70">
-              La funzione commerciale di poche aziende alla volta. Porto a
-              firma i deal che il tuo business ha già aperto.
+              La funzione commerciale di poche aziende alla volta. Trasformo
+              i lead in clienti e tengo vive le relazioni che contano.
             </p>
           </div>
 

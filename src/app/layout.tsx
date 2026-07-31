@@ -20,14 +20,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Solvo · La funzione commerciale che porta i deal a firma",
+  title: "Solvo · Trasformo i tuoi lead in clienti",
   description:
-    "Solvo è il brand operativo di Andrea Droghetti: prendo in carico i lead che la tua azienda genera e li porto a contratto firmato. Closing su ticket a cinque cifre, retainer più success fee.",
+    "Solvo è il brand operativo di Andrea Droghetti: la funzione commerciale di poche aziende alla volta. Porto le trattative a firma e presidio le relazioni con i clienti che contano.",
   metadataBase: new URL("https://solvo.studio"),
   openGraph: {
-    title: "Solvo · La funzione commerciale che porta i deal a firma",
+    title: "Solvo · Trasformo i tuoi lead in clienti",
     description:
-      "Solvo è il brand operativo di Andrea Droghetti: prendo in carico i lead che la tua azienda genera e li porto a contratto firmato. Closing su ticket a cinque cifre, retainer più success fee.",
+      "Solvo è il brand operativo di Andrea Droghetti: la funzione commerciale di poche aziende alla volta. Porto le trattative a firma e presidio le relazioni con i clienti che contano.",
     url: "https://solvo.studio",
     siteName: "Solvo",
     locale: "it_IT",

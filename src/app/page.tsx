@@ -9,9 +9,9 @@ const PILLARS = [
     body: "Il lead lo genera la tua azienda. Io lo prendo in carico e lo porto a firma: qualifica, proposta, obiezioni, negoziazione, contratto.",
   },
   {
-    kicker: "Subito dopo",
-    title: "Account e upsell",
-    body: "I clienti acquisiti non si tengono da soli. Presidio il rapporto, apro i rinnovi, faccio emergere il lavoro che il cliente non sa ancora di volere.",
+    kicker: "L'altra metà",
+    title: "Relazioni istituzionali",
+    body: "Rappresento l'azienda davanti ai clienti che contano. Presidio il rapporto nel tempo, apro i rinnovi, faccio emergere il lavoro successivo prima che lo chieda un concorrente.",
   },
   {
     kicker: "In dotazione",
@@ -89,15 +89,14 @@ export default function Home() {
         <Container className="py-28 md:py-40">
           <Eyebrow>Solvo · Studio di Andrea Droghetti</Eyebrow>
           <h1 className="font-display text-5xl leading-[1.05] tracking-tight text-balance md:text-7xl">
-            Porto a firma i deal
+            Trasformo i tuoi lead
             <br />
-            che la tua azienda ha <em>già aperto</em>
-            <span className="dot">.</span>
+            in <em>clienti</em><span className="dot">.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--color-text-secondary)] text-pretty md:text-xl">
-            Sono la funzione commerciale di poche aziende in cui credo. Non
-            faccio lead generation: prendo le opportunità che il tuo business
-            genera e le trasformo in contratti firmati.
+            Sono la funzione commerciale di poche aziende in cui credo. Due
+            cose, fatte bene: portare le trattative a firma e tenere le
+            relazioni con i clienti che contano.
           </p>
           <div className="mt-12 flex flex-wrap gap-4">
             <Link
