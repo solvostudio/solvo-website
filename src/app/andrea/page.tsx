@@ -5,15 +5,15 @@ import { Eyebrow, Section } from "@/components/Section";
 const TRAITS = [
   {
     label: "Percorso",
-    body: "Founder e CEO di SMACE dal 2021. Prima, project management in Capgemini su implementazioni ERP Microsoft Dynamics.",
+    body: "In attività dal 2019: prima project management in Capgemini su implementazioni ERP Microsoft Dynamics, poi founder e CEO di SMACE dal 2021.",
   },
   {
     label: "Riconoscimenti",
     body: "Forbes Under 30 Italia 2023.",
   },
   {
-    label: "Verticale",
-    body: "Vendite, finanza, tecnologia. Coltello da chirurgo su singoli problemi, non rete da pesca.",
+    label: "Mestiere",
+    body: "Portare a firma trattative complesse su ticket a cinque cifre. Finanza e tecnologia sono il corredo che mi fa vendere meglio, non la vetrina.",
   },
   {
     label: "Formazione",
@@ -33,6 +33,21 @@ const ACCOUNTS = [
   "Elite · Borsa Italiana",
 ];
 
+const RECORD = [
+  {
+    value: "Dal 2019",
+    label: "tra corporate e imprenditoria, da Capgemini alla fondazione di SMACE",
+  },
+  {
+    value: "Milioni di euro",
+    label: "di valore commerciale intermediato e negoziato negli anni",
+  },
+  {
+    value: "Centinaia",
+    label: "di clienti serviti, da PMI a grandi gruppi",
+  },
+];
+
 export default function AndreaPage() {
   return (
     <>
@@ -44,10 +59,11 @@ export default function AndreaPage() {
               Andrea Droghetti<span className="dot">.</span>
             </h1>
             <p className="mt-8 text-lg leading-relaxed text-[var(--color-text-secondary)] text-pretty md:text-xl">
-              Trentun&apos;anni, base Ferrara, una settimana al mese a Milano.
-              Founder di SMACE e Forbes Under 30 Italia 2023, oggi affianco
-              founder che vogliono <em>fare</em> più che parlare e imprese che
-              hanno bisogno di una mano che metta insieme i pezzi.
+              Base Ferrara, una settimana al mese a Milano. Founder di SMACE e
+              Forbes Under 30 Italia 2023. Ho passato gli ultimi anni dall&apos;altra
+              parte del tavolo, a costruire un&apos;azienda e a venderne il
+              servizio: oggi faccio la stessa cosa per poche aziende alla
+              volta, <em>senza fondarle</em>.
             </p>
           </div>
           <div className="space-y-8 border-l border-[var(--color-border)] pl-10">
@@ -68,13 +84,31 @@ export default function AndreaPage() {
       <Section tone="ink">
         <Eyebrow>Track record</Eyebrow>
         <h2 className="max-w-3xl font-display text-3xl leading-tight tracking-tight text-balance md:text-4xl">
-          Account corporate e istituzionali gestiti negli anni di
-          SMACE<span className="dot">.</span>
+          Quello che c&apos;è dietro alle trattative di
+          oggi<span className="dot">.</span>
         </h2>
-        <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4 font-display text-xl text-[var(--color-bg-primary)]/90 md:text-2xl">
-          {ACCOUNTS.map((a) => (
-            <span key={a}>{a}</span>
+        <div className="mt-16 grid gap-x-12 gap-y-10 md:grid-cols-3">
+          {RECORD.map((r) => (
+            <div
+              key={r.value}
+              className="border-t border-[var(--color-bg-primary)]/20 pt-5"
+            >
+              <div className="font-display text-3xl md:text-4xl">{r.value}</div>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--color-bg-primary)]/70 text-pretty">
+                {r.label}
+              </p>
+            </div>
           ))}
+        </div>
+        <div className="mt-20">
+          <div className="mb-6 text-xs uppercase tracking-[0.2em] text-[var(--color-bg-primary)]/60">
+            Account corporate e istituzionali gestiti negli anni di SMACE
+          </div>
+          <div className="flex flex-wrap gap-x-10 gap-y-4 font-display text-xl text-[var(--color-bg-primary)]/90 md:text-2xl">
+            {ACCOUNTS.map((a) => (
+              <span key={a}>{a}</span>
+            ))}
+          </div>
         </div>
       </Section>
 
@@ -83,15 +117,16 @@ export default function AndreaPage() {
         <div className="grid gap-12 md:grid-cols-2">
           <div>
             <h2 className="font-display text-3xl leading-tight tracking-tight text-balance md:text-4xl">
-              Pochi clienti<span className="dot">.</span>
+              Poche aziende<span className="dot">.</span>
               <br />
               Operatività vera<span className="dot">.</span>
             </h2>
             <p className="mt-6 text-[var(--color-text-secondary)] text-pretty">
-              Non lavoro a portfolio di trenta nomi. Lavoro su pochi business
-              alla volta, dove posso entrare con le mani fino al gomito.
-              Quando entro, entro sul serio: sales pipeline, modelli
-              finanziari, scelte tech. Non solo strategia.
+              Non lavoro a portfolio di trenta nomi. Seguo poche aziende alla
+              volta, dove posso entrare con le mani fino al gomito e dove il
+              mio lavoro si misura sui contratti che si firmano. Una funzione
+              commerciale spalmata su troppi tavoli non è una funzione
+              commerciale.
             </p>
           </div>
           <div>

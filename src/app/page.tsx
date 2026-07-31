@@ -4,16 +4,53 @@ import { Eyebrow, Section } from "@/components/Section";
 
 const PILLARS = [
   {
-    title: "Vendite",
-    body: "Pipeline, posizionamento, offerta. Costruisco il motore commerciale dove oggi il founder è il collo di bottiglia.",
+    kicker: "Il mestiere",
+    title: "Closing",
+    body: "Il lead lo genera la tua azienda. Io lo prendo in carico e lo porto a firma: qualifica, proposta, obiezioni, negoziazione, contratto.",
   },
   {
-    title: "Finanza",
-    body: "Modello, capital strategy, finanza agevolata. Trasformo la complessità in decisioni eseguibili.",
+    kicker: "Subito dopo",
+    title: "Account e upsell",
+    body: "I clienti acquisiti non si tengono da soli. Presidio il rapporto, apro i rinnovi, faccio emergere il lavoro che il cliente non sa ancora di volere.",
   },
   {
-    title: "Tecnologia",
-    body: "Stack, automazione, AI applicata. Quello che ieri richiedeva un team, oggi richiede una scelta.",
+    kicker: "In dotazione",
+    title: "Finanza, tecnologia, processi",
+    body: "Non sono la vetrina, sono il motivo per cui vendo meglio di un commerciale puro: capisco il prodotto, i numeri e cosa si può davvero consegnare.",
+  },
+];
+
+const NUMBERS = [
+  {
+    value: "1 su 2",
+    label: "trattative portate a firma",
+  },
+  {
+    value: "20+",
+    label: "trattative strutturate nel 2026",
+  },
+  {
+    value: "+15%",
+    label: "valore del deal tra prima proposta e firma",
+  },
+  {
+    value: "< 2 sett.",
+    label: "dal primo contatto alla proposta completa",
+  },
+];
+
+const FIT = [
+  {
+    title: "Il lead esiste già",
+    body: "Marketing, passaparola, rete di partner: il flusso in ingresso ce l'hai. Quello che manca è chi lo lavora fino alla firma.",
+  },
+  {
+    title: "Il ticket è a cinque cifre",
+    body: "Sotto i 10.000 euro questo mestiere non si ripaga, per nessuno dei due. Il valore si vede dove la trattativa dura settimane e il contratto pesa.",
+  },
+  {
+    title: "Decide un founder o un C-level",
+    body: "Vendita complessa, interlocutore che decide davvero, ciclo da uno a sei mesi. È lì che una persona batte qualunque automazione.",
   },
 ];
 
@@ -52,14 +89,15 @@ export default function Home() {
         <Container className="py-28 md:py-40">
           <Eyebrow>Solvo · Studio di Andrea Droghetti</Eyebrow>
           <h1 className="font-display text-5xl leading-[1.05] tracking-tight text-balance md:text-7xl">
-            <em>Operating Partner</em>
+            Porto a firma i deal
             <br />
-            per founder e imprenditori che corrono<span className="dot">.</span>
+            che la tua azienda ha <em>già aperto</em>
+            <span className="dot">.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--color-text-secondary)] text-pretty md:text-xl">
-            Non consulenza che fa slide. Entro nel business e lo faccio
-            funzionare: vendite, finanza, tecnologia. Una mano sola, un solo
-            punto di contatto.
+            Sono la funzione commerciale di poche aziende in cui credo. Non
+            faccio lead generation: prendo le opportunità che il tuo business
+            genera e le trasformo in contratti firmati.
           </p>
           <div className="mt-12 flex flex-wrap gap-4">
             <Link
@@ -78,16 +116,48 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* NUMERI */}
+      <Section tone="subtle">
+        <Eyebrow>I numeri</Eyebrow>
+        <h2 className="max-w-3xl font-display text-3xl leading-tight tracking-tight text-balance md:text-4xl">
+          Un commerciale si giudica sui contratti chiusi, non sulle
+          intenzioni<span className="dot">.</span>
+        </h2>
+        <div className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          {NUMBERS.map((n) => (
+            <div
+              key={n.label}
+              className="border-t border-[var(--color-border)] pt-5"
+            >
+              <div className="font-display text-4xl text-[var(--color-ink)] md:text-5xl">
+                {n.value}
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--color-text-secondary)] text-pretty">
+                {n.label}
+              </p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-14 max-w-2xl text-sm leading-relaxed text-[var(--color-text-secondary)] text-pretty">
+          Dati riferiti alle trattative gestite nel 2026, con uno sconto medio
+          concesso sotto il 10%. Il valore cresce perché in negoziazione si
+          allarga il perimetro, non perché si abbassa il prezzo.
+        </p>
+      </Section>
+
       {/* PILASTRI */}
       <Section>
-        <Eyebrow>Tre leve, una verticale</Eyebrow>
+        <Eyebrow>Cosa faccio, in ordine di importanza</Eyebrow>
         <h2 className="max-w-3xl font-display text-4xl leading-tight tracking-tight text-balance md:text-5xl">
-          Una mossa che <em>cambia traiettoria</em>, non un parere che fa
-          rumore<span className="dot">.</span>
+          Una funzione sola, fatta <em>bene</em>, invece di tre fatte a
+          metà<span className="dot">.</span>
         </h2>
         <div className="mt-20 grid gap-12 md:grid-cols-3">
           {PILLARS.map((p) => (
             <div key={p.title}>
+              <div className="mb-2 text-xs uppercase tracking-[0.2em] text-[var(--color-text-secondary)]">
+                {p.kicker}
+              </div>
               <div className="mb-4 text-sm font-medium uppercase tracking-widest text-[var(--color-amber)]">
                 {p.title}
               </div>
@@ -96,6 +166,39 @@ export default function Home() {
               </p>
             </div>
           ))}
+        </div>
+      </Section>
+
+      {/* QUANDO HA SENSO */}
+      <Section tone="subtle">
+        <div className="grid gap-16 md:grid-cols-[1fr_2fr]">
+          <div>
+            <Eyebrow>Quando ha senso</Eyebrow>
+            <h2 className="font-display text-3xl leading-tight tracking-tight text-balance md:text-4xl">
+              Non conta il settore<span className="dot">.</span>
+              <br />
+              Conta la forma del deal<span className="dot">.</span>
+            </h2>
+            <p className="mt-6 text-[var(--color-text-secondary)] text-pretty">
+              Lavoro con software house, consulenza, eventi corporate,
+              finanza. Ma il criterio vero è un altro, ed è sempre lo stesso.
+            </p>
+          </div>
+          <div className="space-y-10">
+            {FIT.map((f) => (
+              <div
+                key={f.title}
+                className="border-l-2 border-[var(--color-ink)] pl-6"
+              >
+                <div className="font-display text-xl text-[var(--color-ink)]">
+                  {f.title}
+                </div>
+                <p className="mt-2 text-[var(--color-text-secondary)] text-pretty">
+                  {f.body}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
 
@@ -119,60 +222,83 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <p className="mt-16 max-w-2xl text-sm leading-relaxed text-[var(--color-bg-primary)]/60 text-pretty">
+          Poche aziende alla volta, per scelta. Una funzione commerciale
+          distribuita su troppi tavoli smette di essere una funzione
+          commerciale.
+        </p>
       </Section>
 
-      {/* COSA FACCIO IN PRATICA */}
-      <Section tone="subtle">
+      {/* MODALITÀ DI INGAGGIO */}
+      <Section>
         <div className="grid gap-16 md:grid-cols-[1fr_2fr]">
           <div>
             <Eyebrow>In pratica</Eyebrow>
             <h2 className="font-display text-3xl leading-tight tracking-tight text-balance md:text-4xl">
-              Tre modalità di ingaggio<span className="dot">.</span>
+              Come ci si ingaggia<span className="dot">.</span>
             </h2>
           </div>
           <div className="space-y-10">
             <div className="border-l-2 border-[var(--color-ink)] pl-6">
               <div className="font-display text-xl text-[var(--color-ink)]">
-                Operating Partner frazionale
+                Closing
               </div>
               <p className="mt-2 text-[var(--color-text-secondary)] text-pretty">
-                Retainer mensile, presenza continuativa nel business. La forma
-                preferita per founder che hanno bisogno di un secondo cervello
-                operativo, non di un consulente esterno.
+                La forma principale. Retainer mensile di presidio più success
+                fee sui contratti che si firmano. Il grosso del mio guadagno
+                arriva quando arriva il tuo.
               </p>
             </div>
             <div className="border-l-2 border-[var(--color-ink)] pl-6">
               <div className="font-display text-xl text-[var(--color-ink)]">
-                Progetto verticale
+                Sales ownership
               </div>
               <p className="mt-2 text-[var(--color-text-secondary)] text-pretty">
-                Scope chiuso su un&apos;esigenza specifica: setup finance, AI
-                strategy, M&amp;A advisory. Da 6 a 40K€, durata e deliverable
-                definiti in partenza.
+                Quando il lead arriva dal mio network e lo seguo dall&apos;inizio
+                alla firma. Success fee più alta, perché più alta è la parte di
+                rischio che mi prendo.
               </p>
             </div>
             <div className="border-l-2 border-[var(--color-ink)] pl-6">
               <div className="font-display text-xl text-[var(--color-ink)]">
-                Strategy advisor / CDA
+                Referral
               </div>
               <p className="mt-2 text-[var(--color-text-secondary)] text-pretty">
-                Per fondi, family office e imprese con piani strutturati di
-                crescita o exit. Ruolo continuativo con governance attiva.
+                Segnalo, eroga il partner. Nessun retainer, fee solo sul
+                risultato. La forma leggera per chi entra nel network senza un
+                mandato pieno.
               </p>
+            </div>
+            <div className="border-l-2 border-[var(--color-border)] pl-6">
+              <div className="font-display text-xl text-[var(--color-ink)]">
+                Consulenza senza mandato
+              </div>
+              <p className="mt-2 text-[var(--color-text-secondary)] text-pretty">
+                Advisory su finanza, tecnologia e processi quando non c&apos;è
+                una componente commerciale. Tariffa piena, nessuna success fee.
+              </p>
+            </div>
+            <div className="pt-2">
+              <Link
+                href="/services"
+                className="inline-flex items-center text-sm font-medium text-[var(--color-ink)] underline underline-offset-4 transition-all hover:underline-offset-2"
+              >
+                Condizioni e tariffe →
+              </Link>
             </div>
           </div>
         </div>
       </Section>
 
       {/* CTA CHIUSURA */}
-      <Section>
+      <Section tone="subtle">
         <div className="text-center">
           <h2 className="mx-auto max-w-3xl font-display text-4xl leading-tight tracking-tight text-balance md:text-5xl">
-            Hai un&apos;idea su cui vuoi <em>una mossa concreta</em>?
+            Hai lead che si <em>fermano</em> prima della firma?
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-[var(--color-text-secondary)] text-pretty">
-            Mezz&apos;ora di call, senza listino. Decidiamo insieme se c&apos;è
-            una conversazione che vale la pena fare.
+            Mezz&apos;ora di call, senza listino. Guardiamo la tua pipeline e
+            decidiamo se c&apos;è una conversazione che vale la pena fare.
           </p>
           <Link
             href="/contact"

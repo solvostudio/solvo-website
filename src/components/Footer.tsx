@@ -11,8 +11,8 @@ export function Footer() {
               Solvo<span className="dot">.</span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-[var(--color-bg-primary)]/70">
-              Operating Partner per founder e scale-up. Vendite, finanza,
-              tecnologia, con la stessa mano.
+              La funzione commerciale di poche aziende alla volta. Porto a
+              firma i deal che il tuo business ha già aperto.
             </p>
           </div>
 
