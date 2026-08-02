@@ -1,12 +1,26 @@
 import { Container } from "@/components/Container";
 import { Eyebrow, Section } from "@/components/Section";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contatti · Solvo",
+  description:
+    "Parliamone: una call di mezz’ora per guardare la tua pipeline e capire se ha senso lavorare insieme. Email e LinkedIn.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contatti · Solvo",
+    description:
+      "Parliamone: una call di mezz’ora per guardare la tua pipeline e capire se ha senso lavorare insieme. Email e LinkedIn.",
+  },
+};
+
 const CHANNELS = [
   {
     label: "Email",
     value: "andrea@solvo.studio",
     href: "mailto:andrea@solvo.studio",
-    note: "La via più diretta. Rispondo entro 24h nei giorni lavorativi.",
+    note: "La via più diretta. Rispondiamo entro 24h nei giorni lavorativi.",
   },
   {
     label: "LinkedIn",
@@ -28,7 +42,7 @@ export default function ContactPage() {
             </h1>
             <p className="mt-8 text-lg leading-relaxed text-[var(--color-text-secondary)] text-pretty md:text-xl">
               Una mail chiara con due righe sul tuo contesto è più utile di un
-              form da venti campi. Scrivimi quando vuoi.
+              form da venti campi. Scrivici quando vuoi.
             </p>
           </div>
           <div className="space-y-10">
@@ -57,35 +71,35 @@ export default function ContactPage() {
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <div className="mb-3 text-xs uppercase tracking-widest text-[var(--color-text-secondary)]">
-              Base
+              Dove operiamo
             </div>
             <div className="font-display text-xl text-[var(--color-ink)]">
-              Ferrara
+              Italia
             </div>
             <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
-              Studio principale.
+              Con presenza regolare a Milano per gli incontri di persona.
             </p>
           </div>
           <div>
             <div className="mb-3 text-xs uppercase tracking-widest text-[var(--color-text-secondary)]">
-              In settimana
+              Come si parte
             </div>
             <div className="font-display text-xl text-[var(--color-ink)]">
-              Milano
+              Call di mezz&apos;ora
             </div>
             <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
-              Una settimana al mese, per incontri di persona.
+              Guardiamo la tua pipeline prima di qualsiasi proposta.
             </p>
           </div>
           <div>
             <div className="mb-3 text-xs uppercase tracking-widest text-[var(--color-text-secondary)]">
-              Disponibilità
+              Soglia di ingaggio
             </div>
             <div className="font-display text-xl text-[var(--color-ink)]">
-              Su appuntamento
+              Ticket dai 10.000€
             </div>
             <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
-              Call di mezz&apos;ora prima di qualsiasi proposta.
+              Sotto quella soglia il modello non si ripaga.
             </p>
           </div>
         </div>

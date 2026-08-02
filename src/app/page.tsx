@@ -6,17 +6,17 @@ const PILLARS = [
   {
     kicker: "Il mestiere",
     title: "Closing",
-    body: "Il lead lo genera la tua azienda. Io lo prendo in carico e lo porto a firma: qualifica, proposta, obiezioni, negoziazione, contratto.",
+    body: "Il lead lo genera la tua azienda. Noi lo prendiamo in carico e lo portiamo a firma: qualifica, proposta, obiezioni, negoziazione, contratto.",
   },
   {
     kicker: "L'altra metà",
     title: "Relazioni istituzionali",
-    body: "Rappresento l'azienda davanti ai clienti che contano. Presidio il rapporto nel tempo, apro i rinnovi, faccio emergere il lavoro successivo prima che lo chieda un concorrente.",
+    body: "Rappresentiamo l'azienda davanti ai clienti che contano. Presidiamo il rapporto nel tempo, apriamo i rinnovi, facciamo emergere il lavoro successivo prima che lo chieda un concorrente.",
   },
   {
     kicker: "In dotazione",
     title: "Finanza, tecnologia, processi",
-    body: "Non sono la vetrina, sono il motivo per cui vendo meglio di un commerciale puro: capisco il prodotto, i numeri e cosa si può davvero consegnare.",
+    body: "Non sono la vetrina, sono il motivo per cui vendiamo meglio di un commerciale puro: capiamo il prodotto, i numeri e cosa si può davvero consegnare.",
   },
 ];
 
@@ -54,6 +54,33 @@ const FIT = [
   },
 ];
 
+const MODES = [
+  {
+    title: "Closing",
+    price: "2.000€/mese",
+    fee: "+ 10% success fee",
+    body: "La forma principale. Retainer mensile di presidio più success fee sui contratti che si firmano. Il grosso del nostro guadagno arriva quando arriva il tuo.",
+  },
+  {
+    title: "Sales ownership",
+    price: "2.000€/mese",
+    fee: "+ 15% success fee",
+    body: "Quando il lead arriva dal nostro network e lo seguiamo dall'inizio alla firma. Success fee più alta, perché più alta è la parte di rischio che ci prendiamo.",
+  },
+  {
+    title: "Referral",
+    price: "Nessun retainer",
+    fee: "10% sul netto partner",
+    body: "Segnaliamo, eroga il partner. Fee solo sul risultato. La forma leggera per chi entra nel network senza un mandato pieno.",
+  },
+  {
+    title: "Consulenza senza mandato",
+    price: "140€/ora",
+    fee: "nessuna success fee",
+    body: "Advisory su finanza, tecnologia e processi quando non c'è una componente commerciale da presidiare.",
+  },
+];
+
 const CLIENTS = [
   {
     name: "ShadApps",
@@ -65,7 +92,7 @@ const CLIENTS = [
   },
   {
     name: "SMACE",
-    role: "Eventi corporate. Socio operativo dentro strategia e crescita.",
+    role: "Eventi corporate. Ruolo operativo dentro strategia e crescita.",
   },
   {
     name: "Wonders",
@@ -77,7 +104,7 @@ const CLIENTS = [
   },
   {
     name: "Cognivra",
-    role: "Espansione in Arabia Saudita. Introduco aziende italiane nel mercato KSA.",
+    role: "Espansione in Arabia Saudita. Introduciamo aziende italiane nel mercato KSA.",
   },
 ];
 
@@ -89,13 +116,13 @@ export default function Home() {
         <Container className="py-28 md:py-40">
           <Eyebrow>Solvo · Studio di Andrea Droghetti</Eyebrow>
           <h1 className="font-display text-5xl leading-[1.05] tracking-tight text-balance md:text-7xl">
-            Trasformo i tuoi lead
+            Trasformiamo i tuoi lead
             <br />
             in <em>clienti</em><span className="dot">.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--color-text-secondary)] text-pretty md:text-xl">
-            Sono la funzione commerciale di poche aziende in cui credo. Due
-            cose, fatte bene: portare le trattative a firma e tenere le
+            Siamo la funzione commerciale di poche aziende in cui crediamo.
+            Due cose, fatte bene: portare le trattative a firma e tenere le
             relazioni con i clienti che contano.
           </p>
           <div className="mt-12 flex flex-wrap gap-4">
@@ -109,7 +136,7 @@ export default function Home() {
               href="/services"
               className="inline-flex items-center rounded-full border border-[var(--color-border)] px-6 py-3 text-sm font-medium text-[var(--color-ink)] transition-colors hover:border-[var(--color-ink)]"
             >
-              Come lavoro
+              Come lavoriamo
             </Link>
           </div>
         </Container>
@@ -146,7 +173,7 @@ export default function Home() {
 
       {/* PILASTRI */}
       <Section>
-        <Eyebrow>Cosa faccio, in ordine di importanza</Eyebrow>
+        <Eyebrow>Cosa facciamo, in ordine di importanza</Eyebrow>
         <h2 className="max-w-3xl font-display text-4xl leading-tight tracking-tight text-balance md:text-5xl">
           Una funzione sola, fatta <em>bene</em>, invece di tre fatte a
           metà<span className="dot">.</span>
@@ -179,7 +206,7 @@ export default function Home() {
               Conta la forma del deal<span className="dot">.</span>
             </h2>
             <p className="mt-6 text-[var(--color-text-secondary)] text-pretty">
-              Lavoro con software house, consulenza, eventi corporate,
+              Lavoriamo con software house, consulenza, eventi corporate,
               finanza. Ma il criterio vero è un altro, ed è sempre lo stesso.
             </p>
           </div>
@@ -237,52 +264,32 @@ export default function Home() {
               Come ci si ingaggia<span className="dot">.</span>
             </h2>
           </div>
-          <div className="space-y-10">
-            <div className="border-l-2 border-[var(--color-ink)] pl-6">
-              <div className="font-display text-xl text-[var(--color-ink)]">
-                Closing
+          <div className="space-y-8">
+            {MODES.map((m) => (
+              <div
+                key={m.title}
+                className="border-l-2 border-[var(--color-ink)] pl-6"
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                  <div className="font-display text-xl text-[var(--color-ink)]">
+                    {m.title}
+                  </div>
+                  <div className="font-display text-lg text-[var(--color-ink)]">
+                    {m.price}{" "}
+                    <span className="text-[var(--color-amber)]">{m.fee}</span>
+                  </div>
+                </div>
+                <p className="mt-2 text-[var(--color-text-secondary)] text-pretty">
+                  {m.body}
+                </p>
               </div>
-              <p className="mt-2 text-[var(--color-text-secondary)] text-pretty">
-                La forma principale. Retainer mensile di presidio più success
-                fee sui contratti che si firmano. Il grosso del mio guadagno
-                arriva quando arriva il tuo.
-              </p>
-            </div>
-            <div className="border-l-2 border-[var(--color-ink)] pl-6">
-              <div className="font-display text-xl text-[var(--color-ink)]">
-                Sales ownership
-              </div>
-              <p className="mt-2 text-[var(--color-text-secondary)] text-pretty">
-                Quando il lead arriva dal mio network e lo seguo dall&apos;inizio
-                alla firma. Success fee più alta, perché più alta è la parte di
-                rischio che mi prendo.
-              </p>
-            </div>
-            <div className="border-l-2 border-[var(--color-ink)] pl-6">
-              <div className="font-display text-xl text-[var(--color-ink)]">
-                Referral
-              </div>
-              <p className="mt-2 text-[var(--color-text-secondary)] text-pretty">
-                Segnalo, eroga il partner. Nessun retainer, fee solo sul
-                risultato. La forma leggera per chi entra nel network senza un
-                mandato pieno.
-              </p>
-            </div>
-            <div className="border-l-2 border-[var(--color-border)] pl-6">
-              <div className="font-display text-xl text-[var(--color-ink)]">
-                Consulenza senza mandato
-              </div>
-              <p className="mt-2 text-[var(--color-text-secondary)] text-pretty">
-                Advisory su finanza, tecnologia e processi quando non c&apos;è
-                una componente commerciale. Tariffa piena, nessuna success fee.
-              </p>
-            </div>
+            ))}
             <div className="pt-2">
               <Link
                 href="/services"
                 className="inline-flex items-center text-sm font-medium text-[var(--color-ink)] underline underline-offset-4 transition-all hover:underline-offset-2"
               >
-                Condizioni e tariffe →
+                Tutte le condizioni in dettaglio →
               </Link>
             </div>
           </div>
@@ -297,13 +304,14 @@ export default function Home() {
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-[var(--color-text-secondary)] text-pretty">
             Mezz&apos;ora di call, senza listino. Guardiamo la tua pipeline e
-            decidiamo se c&apos;è una conversazione che vale la pena fare.
+            decidiamo insieme se c&apos;è una conversazione che vale la pena
+            fare.
           </p>
           <Link
             href="/contact"
             className="mt-10 inline-flex items-center rounded-full bg-[var(--color-ink)] px-7 py-3.5 text-sm font-medium text-[var(--color-bg-primary)] transition-colors hover:bg-[var(--color-ink-deep)]"
           >
-            Scrivimi
+            Scrivici
           </Link>
         </div>
       </Section>

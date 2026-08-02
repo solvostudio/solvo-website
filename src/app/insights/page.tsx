@@ -2,6 +2,20 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Eyebrow, Section } from "@/components/Section";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Insights · Solvo",
+  description:
+    "Note e materiali su vendita complessa, closing e relazioni con i clienti. In apertura a fine 2026.",
+  alternates: { canonical: "/insights" },
+  openGraph: {
+    title: "Insights · Solvo",
+    description:
+      "Note e materiali su vendita complessa, closing e relazioni con i clienti. In apertura a fine 2026.",
+  },
+};
+
 export default function InsightsPage() {
   return (
     <Section>
@@ -22,7 +36,7 @@ export default function InsightsPage() {
           href="/contact"
           className="mt-12 inline-flex items-center text-sm font-medium text-[var(--color-ink)] underline underline-offset-4 transition-all hover:underline-offset-2"
         >
-          Vuoi essere avvisato quando esce? Scrivimi.
+          Vuoi essere avvisato quando esce? Scrivici.
         </Link>
       </div>
     </Section>

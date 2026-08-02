@@ -2,6 +2,20 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Eyebrow, Section } from "@/components/Section";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Andrea Droghetti · Solvo",
+  description:
+    "Founder di SMACE, Forbes Under 30 Italia 2023. In attività dal 2019 tra Capgemini e imprenditoria: percorso, track record e approccio dietro Solvo.",
+  alternates: { canonical: "/andrea" },
+  openGraph: {
+    title: "Andrea Droghetti · Solvo",
+    description:
+      "Founder di SMACE, Forbes Under 30 Italia 2023. In attività dal 2019 tra Capgemini e imprenditoria: percorso, track record e approccio dietro Solvo.",
+  },
+};
+
 const TRAITS = [
   {
     label: "Percorso",
@@ -13,7 +27,7 @@ const TRAITS = [
   },
   {
     label: "Mestiere",
-    body: "Portare a firma trattative complesse su ticket a cinque cifre. Finanza e tecnologia sono il corredo che mi fa vendere meglio, non la vetrina.",
+    body: "Portare a firma trattative complesse su ticket a cinque cifre. Finanza e tecnologia sono il corredo che fa vendere meglio, non la vetrina.",
   },
   {
     label: "Formazione",
@@ -59,11 +73,11 @@ export default function AndreaPage() {
               Andrea Droghetti<span className="dot">.</span>
             </h1>
             <p className="mt-8 text-lg leading-relaxed text-[var(--color-text-secondary)] text-pretty md:text-xl">
-              Base Ferrara, una settimana al mese a Milano. Founder di SMACE e
-              Forbes Under 30 Italia 2023. Ho passato gli ultimi anni dall&apos;altra
-              parte del tavolo, a costruire un&apos;azienda e a venderne il
-              servizio: oggi faccio la stessa cosa per poche aziende alla
-              volta, <em>senza fondarle</em>.
+              Founder di SMACE e Forbes Under 30 Italia 2023. Ho passato gli
+              ultimi anni dall&apos;altra parte del tavolo, a costruire
+              un&apos;azienda e a venderne il servizio: è da lì che nasce Solvo,
+              e oggi facciamo la stessa cosa per poche aziende alla volta,{" "}
+              <em>senza fondarle</em>.
             </p>
           </div>
           <div className="space-y-8 border-l border-[var(--color-border)] pl-10">
@@ -122,9 +136,9 @@ export default function AndreaPage() {
               Operatività vera<span className="dot">.</span>
             </h2>
             <p className="mt-6 text-[var(--color-text-secondary)] text-pretty">
-              Non lavoro a portfolio di trenta nomi. Seguo poche aziende alla
-              volta, dove posso entrare con le mani fino al gomito e dove il
-              mio lavoro si misura sui contratti che si firmano. Una funzione
+              Non lavoriamo a portfolio di trenta nomi. Seguiamo poche aziende
+              alla volta, dove si può entrare con le mani fino al gomito e dove
+              il lavoro si misura sui contratti che si firmano. Una funzione
               commerciale spalmata su troppi tavoli non è una funzione
               commerciale.
             </p>
@@ -157,7 +171,7 @@ export default function AndreaPage() {
             href="/contact"
             className="mt-10 inline-flex items-center rounded-full bg-[var(--color-amber)] px-7 py-3.5 text-sm font-medium text-[var(--color-ink)] transition-colors hover:bg-[var(--color-amber)]/90"
           >
-            Scrivimi
+            Scrivici
           </Link>
         </div>
       </Section>

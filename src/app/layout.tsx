@@ -19,23 +19,61 @@ const inter = Inter({
   weight: ["400", "500", "600"],
 });
 
+const TITLE = "Solvo · Trasformiamo i tuoi lead in clienti";
+const DESCRIPTION =
+  "Solvo è lo studio commerciale di Andrea Droghetti: siamo la funzione commerciale di poche aziende alla volta. Portiamo le trattative a firma e presidiamo le relazioni con i clienti che contano.";
+
 export const metadata: Metadata = {
-  title: "Solvo · Trasformo i tuoi lead in clienti",
-  description:
-    "Solvo è il brand operativo di Andrea Droghetti: la funzione commerciale di poche aziende alla volta. Porto le trattative a firma e presidio le relazioni con i clienti che contano.",
+  title: TITLE,
+  description: DESCRIPTION,
   metadataBase: new URL("https://solvo.studio"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Solvo · Trasformo i tuoi lead in clienti",
-    description:
-      "Solvo è il brand operativo di Andrea Droghetti: la funzione commerciale di poche aziende alla volta. Porto le trattative a firma e presidio le relazioni con i clienti che contano.",
+    title: TITLE,
+    description: DESCRIPTION,
     url: "https://solvo.studio",
     siteName: "Solvo",
     locale: "it_IT",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
   robots: {
     index: true,
     follow: true,
+  },
+};
+
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Solvo",
+  url: "https://solvo.studio",
+  description: DESCRIPTION,
+  areaServed: "IT",
+  availableLanguage: ["it", "en"],
+  serviceType: [
+    "Sviluppo commerciale",
+    "Gestione trattative e closing",
+    "Relazioni con i clienti",
+    "Advisory finanza e tecnologia",
+  ],
+  founder: {
+    "@type": "Person",
+    name: "Andrea Droghetti",
+    jobTitle: "Operating Partner",
+    email: "andrea@solvo.studio",
+    sameAs: ["https://www.linkedin.com/in/andreadroghetti"],
+    alumniOf: [
+      { "@type": "CollegeOrUniversity", name: "Università di Bologna" },
+      { "@type": "CollegeOrUniversity", name: "Università Bocconi" },
+      { "@type": "CollegeOrUniversity", name: "SDA Bocconi" },
+    ],
   },
 };
 
@@ -47,6 +85,10 @@ export default function RootLayout({
   return (
     <html lang="it" className={`${newsreader.variable} ${inter.variable}`}>
       <body className="flex min-h-dvh flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+        />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
