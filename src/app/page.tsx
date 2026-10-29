@@ -95,10 +95,6 @@ const CLIENTS = [
     role: "Eventi corporate. Ruolo operativo dentro strategia e crescita.",
   },
   {
-    name: "Wonders",
-    role: "Advisory e M&A. Partnership sui servizi finance per i loro clienti.",
-  },
-  {
     name: "Blue Venture",
     role: "Venture e private equity. Operazioni di investimento e deal del network.",
   },
@@ -121,7 +117,7 @@ export default function Home() {
             in <em>clienti</em><span className="dot">.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--color-text-secondary)] text-pretty md:text-xl">
-            Siamo la funzione commerciale di poche aziende in cui crediamo.
+            Siamo la funzione commerciale B2B di poche aziende in cui crediamo.
             Due cose, fatte bene: portare le trattative a firma e tenere le
             relazioni con i clienti che contano.
           </p>
@@ -201,13 +197,14 @@ export default function Home() {
           <div>
             <Eyebrow>Quando ha senso</Eyebrow>
             <h2 className="font-display text-3xl leading-tight tracking-tight text-balance md:text-4xl">
-              Non conta il settore<span className="dot">.</span>
-              <br />
-              Conta la forma del deal<span className="dot">.</span>
+              Il nostro terreno è il B2B dei <em>servizi</em>
+              <span className="dot">.</span>
             </h2>
             <p className="mt-6 text-[var(--color-text-secondary)] text-pretty">
-              Lavoriamo con software house, consulenza, eventi corporate,
-              finanza. Ma il criterio vero è un altro, ed è sempre lo stesso.
+              Software house, consulenza, eventi corporate, finanza: aziende
+              che vendono competenze e progetti più che prodotti fisici. È lì
+              che siamo specializzati, più che nel manifatturiero. Dentro
+              questo perimetro, a decidere è la forma del deal.
             </p>
           </div>
           <div className="space-y-10">
@@ -228,11 +225,11 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* DOVE OPERO OGGI — block presence + prova reale */}
+      {/* DOVE LAVORIAMO OGGI — block presence + prova reale */}
       <Section tone="ink">
-        <Eyebrow>Dove opero oggi</Eyebrow>
+        <Eyebrow>Dove lavoriamo oggi</Eyebrow>
         <h2 className="max-w-3xl font-display text-3xl leading-tight tracking-tight text-balance md:text-4xl">
-          Non collaborazioni a slide: realtà e partner con cui lavoro
+          Non collaborazioni a slide: realtà e partner con cui lavoriamo
           davvero<span className="dot">.</span>
         </h2>
         <div className="mt-16 grid gap-x-12 gap-y-10 md:grid-cols-2 lg:grid-cols-3">

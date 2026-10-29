@@ -21,7 +21,7 @@ const inter = Inter({
 
 const TITLE = "Solvo · Trasformiamo i tuoi lead in clienti";
 const DESCRIPTION =
-  "Solvo è lo studio commerciale di Andrea Droghetti: siamo la funzione commerciale di poche aziende alla volta. Portiamo le trattative a firma e presidiamo le relazioni con i clienti che contano.";
+  "Solvo è lo studio commerciale di Andrea Droghetti: siamo la funzione commerciale B2B di poche aziende alla volta, specializzati nei servizi. Portiamo le trattative a firma e presidiamo le relazioni con i clienti che contano.";
 
 export const metadata: Metadata = {
   title: TITLE,
