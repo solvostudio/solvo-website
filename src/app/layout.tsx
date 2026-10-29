@@ -76,7 +76,8 @@ const JSON_LD = {
   founder: {
     "@type": "Person",
     name: "Andrea Droghetti",
-    jobTitle: "Operating Partner",
+    jobTitle: "Founder",
+    image: "https://solvo.studio/andrea-ritratto.jpg",
     email: "andrea@solvo.studio",
     sameAs: ["https://www.linkedin.com/in/andreadroghetti"],
     alumniOf: [

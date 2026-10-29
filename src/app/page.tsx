@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Eyebrow, Section } from "@/components/Section";
@@ -296,6 +297,20 @@ export default function Home() {
       {/* CTA CHIUSURA */}
       <Section tone="subtle">
         <div className="text-center">
+          <Image
+            src="/andrea-avatar.jpg"
+            alt="Andrea Droghetti"
+            width={480}
+            height={480}
+            sizes="96px"
+            className="mx-auto h-24 w-24 rounded-full object-cover"
+          />
+          <p className="mt-4 mb-10 text-sm text-[var(--color-text-secondary)]">
+            <Link href="/andrea" className="underline underline-offset-4">
+              Andrea Droghetti
+            </Link>
+            , founder di Solvo
+          </p>
           <h2 className="mx-auto max-w-3xl font-display text-4xl leading-tight tracking-tight text-balance md:text-5xl">
             Hai lead che si <em>fermano</em> prima della firma?
           </h2>

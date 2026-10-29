@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Eyebrow, Section } from "@/components/Section";
@@ -68,6 +69,15 @@ export default function AndreaPage() {
       <Section>
         <div className="grid gap-16 md:grid-cols-[1fr_1fr]">
           <div>
+            <Image
+              src="/andrea-ritratto.jpg"
+              alt="Andrea Droghetti"
+              width={1200}
+              height={1500}
+              priority
+              sizes="(min-width: 768px) 280px, 100vw"
+              className="mb-10 w-full max-w-[280px] rounded-2xl"
+            />
             <Eyebrow>L&apos;autore dietro Solvo</Eyebrow>
             <h1 className="font-display text-5xl leading-[1.05] tracking-tight text-balance md:text-6xl">
               Andrea Droghetti<span className="dot">.</span>
