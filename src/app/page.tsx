@@ -261,6 +261,10 @@ export default function Home() {
             <h2 className="font-display text-3xl leading-tight tracking-tight text-balance md:text-4xl">
               Come ci si ingaggia<span className="dot">.</span>
             </h2>
+            <p className="mt-6 text-[var(--color-text-secondary)] text-pretty">
+              Le modalità principali. Tutte e cinque, con le condizioni nel
+              dettaglio, sono nella pagina Servizi.
+            </p>
           </div>
           <div className="space-y-8">
             {MODES.map((m) => (
@@ -315,7 +319,7 @@ export default function Home() {
             Hai lead che si <em>fermano</em> prima della firma?
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-[var(--color-text-secondary)] text-pretty">
-            Mezz&apos;ora di call, senza listino. Guardiamo la tua pipeline e
+            Mezz&apos;ora di call, senza impegno. Guardiamo la tua pipeline e
             decidiamo insieme se c&apos;è una conversazione che vale la pena
             fare.
           </p>

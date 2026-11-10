@@ -97,6 +97,47 @@ const PRICING = [
   },
 ];
 
+
+// Domande vere dei buyer, emerse nelle call. Stesse frasi nel JSON-LD
+// FAQPage: Google oggi mostra poco i rich result FAQ, ma il markup resta
+// utile agli assistenti AI che leggono la pagina.
+const FAQ = [
+  {
+    q: "Che differenza c'è rispetto ad assumere un commerciale?",
+    a: "Un commerciale senior interno costa per intero anche nei mesi in cui non chiude, e prima di rendere ha bisogno di mesi di inserimento. Con noi il fisso copre solo il presidio, la parte grossa del compenso arriva con i contratti firmati, e partiamo dalla pipeline che hai già. Ha senso finché il volume non giustifica una persona a tempo pieno, e quando arriva quel momento, il passaggio di consegne è già scritto nella pipeline.",
+  },
+  {
+    q: "Il retainer corrisponde a un monte ore?",
+    a: "No. È il costo del presidio commerciale continuativo: le ore sono indicative e si adattano alla fase della trattativa. Le attività fuori dal perimetro commerciale si concordano prima, per iscritto, a 90€/ora.",
+  },
+  {
+    q: "Generate anche i lead?",
+    a: "No, il nostro mestiere è portare a firma i lead che la tua azienda genera già. Quando un'opportunità nasce dal nostro network la seguiamo dall'introduzione alla firma, ed è la modalità sales ownership con success fee al 15%.",
+  },
+  {
+    q: "Su cosa si calcola la success fee e quando si paga?",
+    a: "Sul valore del contratto firmato, al netto delle voci riaddebitate senza margine come hosting, licenze e provider. Matura alla firma e si paga quando il cliente ha pagato te.",
+  },
+  {
+    q: "Con che tipo di aziende lavorate?",
+    a: "B2B dei servizi: software house, consulenza, eventi corporate, finanza. Aziende con un flusso di lead già attivo, ticket dai 10.000€ in su e un decisore founder o C-level. Lavoriamo con poche aziende alla volta, per scelta.",
+  },
+  {
+    q: "Quanto dura l'impegno?",
+    a: "Il rapporto è a tempo indeterminato, con un preavviso di recesso uguale per entrambe le parti e scritto nel contratto. Nessun vincolo pluriennale: restiamo finché i contratti firmati giustificano il costo.",
+  },
+];
+
+const FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export default function ServicesPage() {
   return (
     <>
@@ -108,7 +149,9 @@ export default function ServicesPage() {
           <em>Cinque modi</em> di ingaggiarlo.
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--color-text-secondary)] text-pretty md:text-xl">
-          Solvo non vende ore, vende contratti firmati. La struttura economica
+          Siamo una funzione commerciale esterna, quella che nel mondo
+          anglosassone si chiama <em>fractional sales</em>. Non vendiamo ore,
+          vendiamo contratti firmati. La struttura economica
           è costruita perché guadagniamo davvero solo quando guadagni tu: un
           fisso che copre il presidio, e la parte grossa legata al risultato.
         </p>
@@ -263,6 +306,38 @@ export default function ServicesPage() {
                 Richiedi un preventivo →
               </Link>
             </div>
+          </div>
+        </div>
+      </Section>
+      <Section tone="subtle">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
+        />
+        <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
+          <div>
+            <Eyebrow>Domande frequenti</Eyebrow>
+            <h2 className="font-display text-3xl leading-tight tracking-tight text-balance md:text-4xl">
+              Quello che ci chiedono prima di partire<span className="dot">.</span>
+            </h2>
+          </div>
+          <div className="divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
+            {FAQ.map((f) => (
+              <details key={f.q} className="group py-6">
+                <summary className="flex cursor-pointer list-none items-start justify-between gap-6 font-display text-xl text-[var(--color-ink)] [&::-webkit-details-marker]:hidden">
+                  <h3 className="text-xl font-normal leading-snug">{f.q}</h3>
+                  <span
+                    aria-hidden="true"
+                    className="mt-1 shrink-0 text-[var(--color-amber)] transition-transform group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="mt-4 text-[var(--color-text-secondary)] text-pretty">
+                  {f.a}
+                </p>
+              </details>
+            ))}
           </div>
         </div>
       </Section>
