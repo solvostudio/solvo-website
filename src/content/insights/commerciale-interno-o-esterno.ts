@@ -26,7 +26,7 @@ export const article: Article = {
     { type: "h2", text: "Quanto costa davvero un commerciale senior" },
     {
       type: "p",
-      html: "Partiamo dalla retribuzione. L'Osservatorio JobPricing colloca la RAL mediana di un key account manager con 6-10 anni nel ruolo a <strong>circa 63.500 euro</strong> (Lombardia, aziende medio-grandi). L'Osservatorio Retribuzioni Sales, su un campione più ampio e meno selezionato, indica una media di <strong>circa 50.000 euro</strong> per lo stesso ruolo. Per un profilo capace di chiudere contratti da decine di migliaia di euro con founder e direttori generali, 60.000 euro di RAL è un'ipotesi realistica, non generosa.",
+      html: "Partiamo dalla retribuzione. Secondo i dati JobPricing (jp·analytics, giugno 2026), la RAL mediana di un key account manager inquadrato come quadro, con 6-10 anni nel ruolo, in un'azienda lombarda medio-grande, è di <strong>circa 63.500 euro</strong>. L'Osservatorio Retribuzioni Sales, che raccoglie le risposte dei commerciali stessi senza distinguere per anzianità e regione, indica per il ruolo <strong>circa 50.000 euro</strong>. Per un profilo capace di chiudere contratti da decine di migliaia di euro con founder e direttori generali, 60.000 euro di RAL è un'ipotesi realistica, non generosa.",
     },
     {
       type: "p",
@@ -46,7 +46,7 @@ export const article: Article = {
     },
     {
       type: "p",
-      html: "Centomila euro l'anno, quindi, prima di aver firmato un solo contratto. E c'è un costo che in tabella non compare: il tempo. Tra ricerca, selezione e preavviso dal datore precedente passano facilmente tre o quattro mesi. Poi il nuovo arrivato deve imparare il prodotto, i clienti, il modo in cui l'azienda consegna: nel B2B dei servizi, prima che chiuda in autonomia passano altri mesi. Nel primo anno, chi assume paga dodici mesi e ne incassa sei, se va bene.",
+      html: "Circa centomila euro l'anno, di cui novantamila fissi, dovuti anche prima di aver firmato un solo contratto. E c'è un costo che in tabella non compare: il tempo. Tra ricerca, selezione e preavviso dal datore precedente passano facilmente tre o quattro mesi. Poi il nuovo arrivato deve imparare il prodotto, i clienti, il modo in cui l'azienda consegna: nel B2B dei servizi, prima che chiuda in autonomia passano altri mesi. Nel primo anno, chi assume paga dodici mesi e ne incassa sei, se va bene.",
     },
     {
       type: "p",
@@ -59,7 +59,7 @@ export const article: Article = {
     },
     {
       type: "p",
-      html: "Il fisso annuo è di 24.000 euro, un quarto del costo di un assunto. Il resto è variabile: se non si firma, non si paga. Non c'è ricerca né inserimento da finanziare, perché si parte dalla pipeline che c'è già, con le trattative aperte. E non c'è un'uscita costosa se il rapporto non funziona: il contratto prevede un preavviso, non una liquidazione.",
+      html: "Il fisso annuo è di 24.000 euro, contro i circa 90.000 di fisso di un assunto. Il resto è variabile: se non si firma, non si paga. Non c'è ricerca né inserimento da finanziare, perché si parte dalla pipeline che c'è già, con le trattative aperte. E non c'è un'uscita costosa se il rapporto non funziona: sui mandati a retainer il contratto prevede un preavviso, non una liquidazione.",
     },
     { type: "h2", text: "Il punto di pareggio" },
     {
@@ -84,7 +84,7 @@ export const article: Article = {
     },
     {
       type: "callout",
-      html: "La regola pratica: finché il venduto annuo resta sotto i 700.000 euro, o finché non è stabile, una funzione esterna costa meno e rischia meno. Quando il volume supera stabilmente quella soglia, è il momento di assumere.",
+      html: "La regola pratica: finché il venduto annuo resta sotto i 700-800.000 euro, o finché non è stabile, una funzione esterna costa meno e rischia meno. Quando il volume supera stabilmente quella soglia, è il momento di assumere.",
     },
     { type: "h2", text: "Perché sotto i 10.000 euro di ticket non funziona" },
     {
@@ -133,7 +133,7 @@ export const article: Article = {
       url: "https://magneticam.it/quanto-guadagna-key-account-manager/",
     },
     {
-      label: "Osservatorio Retribuzioni Sales, dati preliminari marzo 2026",
+      label: "Osservatorio Retribuzioni Sales, anteprima del 14 marzo 2026",
       url: "https://ilcommerciale.substack.com/p/osservatorio-permanente-retribuzioni",
     },
   ],

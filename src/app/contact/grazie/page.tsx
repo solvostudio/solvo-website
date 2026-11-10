@@ -19,7 +19,7 @@ export default function ThankYouPage() {
           <span className="dot">.</span>
         </h1>
         <p className="mt-8 text-lg leading-relaxed text-[var(--color-text-secondary)] text-pretty md:text-xl">
-          Ti rispondiamo entro 24 ore nei giorni lavorativi, per fissare la
+          Ti rispondiamo entro un giorno lavorativo, di solito prima, per fissare la
           call o per chiederti quello che ci manca.
         </p>
         <Link

@@ -27,8 +27,8 @@ export default function InsightsPage() {
           <p className="mt-8 text-lg leading-relaxed text-[var(--color-text-secondary)] text-pretty md:text-xl">
             Qui pubblichiamo quello che impariamo portando trattative a
             firma: i conti dietro le scelte commerciali, i punti in cui i
-            deal si fermano, i metodi che funzionano nel B2B dei servizi. Un
-            articolo al mese, niente opinioni di maniera.
+            deal si fermano, i metodi che funzionano nel B2B dei servizi. Pubblichiamo
+            con regolarità, niente opinioni di maniera.
           </p>
         </div>
       </Section>

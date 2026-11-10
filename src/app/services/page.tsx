@@ -124,7 +124,7 @@ const FAQ = [
   },
   {
     q: "Quanto dura l'impegno?",
-    a: "Il rapporto è a tempo indeterminato, con un preavviso di recesso uguale per entrambe le parti e scritto nel contratto. Nessun vincolo pluriennale: restiamo finché i contratti firmati giustificano il costo.",
+    a: "Sui mandati a retainer il rapporto è a tempo indeterminato, con un preavviso di recesso uguale per entrambe le parti e scritto nel contratto. Nessun vincolo pluriennale: restiamo finché i contratti firmati giustificano il costo.",
   },
 ];
 

@@ -162,7 +162,7 @@ export function ContactForm() {
         </button>
         <p role="status" aria-live="polite" className="text-sm text-[var(--color-text-secondary)]">
           {status === "error" &&
-            "Invio non riuscito. Riprova, oppure scrivici direttamente a andrea@solvo.studio."}
+            "Invio non riuscito. Riprova, oppure scrivici direttamente ad andrea@solvo.studio."}
         </p>
       </div>
     </form>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 // Informativa breve ex art. 13 GDPR per il form di contatto e le
-// statistiche di visita. Titolare da confermare con Andrea prima del merge.
+// statistiche di visita.
 export default function PrivacyPage() {
   return (
     <Section>
@@ -49,6 +49,10 @@ export default function PrivacyPage() {
             Misuriamo le visite con Vercel Web Analytics e Speed Insights, in
             forma aggregata, senza cookie e senza identificare chi visita il
             sito. Per questo non c&apos;è un banner cookie.
+          </p>
+          <p className="text-pretty">
+            I fornitori possono trattare i dati fuori dall&apos;UE, con le
+            garanzie previste dal GDPR (clausole contrattuali standard).
           </p>
           <h2>I tuoi diritti</h2>
           <p className="text-pretty">
