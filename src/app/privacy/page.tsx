@@ -38,11 +38,12 @@ export default function PrivacyPage() {
             Non li usiamo per newsletter né li cediamo a terzi.
           </p>
           <p className="text-pretty">
-            Il messaggio ci arriva via email tramite Web3Forms, un servizio
-            di inoltro che agisce come responsabile del trattamento. La
-            corrispondenza resta nella nostra casella email per il tempo
-            necessario a gestire il rapporto e comunque non oltre 24 mesi
-            dall&apos;ultimo contatto, salvo obblighi di legge.
+            Il messaggio arriva nella nostra casella email (Google Workspace)
+            e viene registrato nel nostro gestionale interno (Notion): i due
+            fornitori agiscono come responsabili del trattamento. I dati
+            restano lì per il tempo necessario a gestire il rapporto e
+            comunque non oltre 24 mesi dall&apos;ultimo contatto, salvo
+            obblighi di legge.
           </p>
           <h2>Statistiche di visita</h2>
           <p className="text-pretty">

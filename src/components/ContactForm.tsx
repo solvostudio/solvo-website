@@ -2,12 +2,10 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 
-// Inoltro via Web3Forms (piano gratuito): nessun backend nostro, il messaggio
-// arriva sulla casella di Solvo con reply-to sull'email di chi scrive.
-// Senza chiave il form non viene mostrato: restano email e LinkedIn.
-const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+// Invio al backend interno (/api/contact): riga su Notion + mail di notifica.
+// La pagina /contact mostra il form solo se il backend è configurato.
 
 const SOURCES = [
   "Ricerca Google",
@@ -27,8 +25,11 @@ const label =
 export function ContactForm() {
   const router = useRouter();
   const [status, setStatus] = useState<Status>("idle");
-
-  if (!WEB3FORMS_KEY) return null;
+  // Momento in cui il form è comparso: il server scarta gli invii troppo rapidi.
+  const startedAt = useRef<number>(0);
+  useEffect(() => {
+    startedAt.current = Date.now();
+  }, []);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -38,21 +39,13 @@ export function ContactForm() {
     if (data.botcheck) return;
     setStatus("sending");
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          ...data,
-          access_key: WEB3FORMS_KEY,
-          subject: `Nuovo contatto dal sito: ${data.name}`,
-          from_name: "Sito Solvo",
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, ts: startedAt.current }),
       });
-      const json = await res.json();
-      if (!res.ok || !json.success) throw new Error(json.message);
+      const json = (await res.json().catch(() => ({}))) as { ok?: boolean };
+      if (!res.ok || !json.ok) throw new Error(String(res.status));
       form.reset();
       // Pagina di conferma dedicata: conta come conversione nelle statistiche.
       router.push("/contact/grazie");

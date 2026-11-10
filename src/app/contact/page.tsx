@@ -1,4 +1,5 @@
 import { ContactForm } from "@/components/ContactForm";
+import { isContactConfigured } from "@/lib/contact-config";
 import { Eyebrow, Section } from "@/components/Section";
 
 import type { Metadata } from "next";
@@ -30,7 +31,7 @@ const CHANNELS = [
   },
 ];
 
-const HAS_FORM = Boolean(process.env.NEXT_PUBLIC_WEB3FORMS_KEY);
+const HAS_FORM = isContactConfigured();
 
 export default function ContactPage() {
   return (
