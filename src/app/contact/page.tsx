@@ -31,7 +31,6 @@ const CHANNELS = [
 ];
 
 const HAS_FORM = Boolean(process.env.NEXT_PUBLIC_WEB3FORMS_KEY);
-const BOOKING_URL = process.env.NEXT_PUBLIC_BOOKING_URL;
 
 export default function ContactPage() {
   return (
@@ -48,16 +47,6 @@ export default function ContactPage() {
                 ? "Due righe sul tuo contesto bastano: cosa vendete, a chi, dove si fermano le trattative. Ti rispondiamo noi per fissare la call."
                 : "Una mail chiara con due righe sul tuo contesto è più utile di un form da venti campi. Scrivici quando vuoi."}
             </p>
-            {BOOKING_URL && (
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-10 inline-flex items-center rounded-full border border-[var(--color-ink)] px-6 py-3 text-sm font-medium text-[var(--color-ink)] transition-colors hover:bg-[var(--color-ink)] hover:text-[var(--color-bg-primary)]"
-              >
-                Prenota direttamente la call di mezz&apos;ora
-              </a>
-            )}
             <div className="mt-14 space-y-10">
               {CHANNELS.map((c) => (
                 <div key={c.label} className="border-l-2 border-[var(--color-ink)] pl-6">

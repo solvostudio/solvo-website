@@ -133,6 +133,19 @@ export function ContactForm() {
         </div>
       </div>
       <div>
+        <label htmlFor="cf-ticket" className={label}>
+          Valore medio dei vostri contratti{" "}
+          <span className="normal-case tracking-normal">(facoltativo)</span>
+        </label>
+        <select id="cf-ticket" name="ticket" defaultValue="" className={field}>
+          <option value="">Seleziona</option>
+          <option value="Sotto 10.000 €">Sotto 10.000 €</option>
+          <option value="10.000-30.000 €">10.000-30.000 €</option>
+          <option value="Oltre 30.000 €">Oltre 30.000 €</option>
+          <option value="Non saprei">Non saprei</option>
+        </select>
+      </div>
+      <div>
         <label htmlFor="cf-message" className={label}>
           Messaggio
         </label>
