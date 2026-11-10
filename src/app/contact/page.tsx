@@ -1,4 +1,4 @@
-import { Container } from "@/components/Container";
+import { ContactForm } from "@/components/ContactForm";
 import { Eyebrow, Section } from "@/components/Section";
 
 import type { Metadata } from "next";
@@ -30,6 +30,9 @@ const CHANNELS = [
   },
 ];
 
+const HAS_FORM = Boolean(process.env.NEXT_PUBLIC_WEB3FORMS_KEY);
+const BOOKING_URL = process.env.NEXT_PUBLIC_BOOKING_URL;
+
 export default function ContactPage() {
   return (
     <>
@@ -41,29 +44,45 @@ export default function ContactPage() {
               <em>Parliamone</em><span className="dot">.</span>
             </h1>
             <p className="mt-8 text-lg leading-relaxed text-[var(--color-text-secondary)] text-pretty md:text-xl">
-              Una mail chiara con due righe sul tuo contesto è più utile di un
-              form da venti campi. Scrivici quando vuoi.
+              {HAS_FORM
+                ? "Due righe sul tuo contesto bastano: cosa vendete, a chi, dove si fermano le trattative. Ti rispondiamo noi per fissare la call."
+                : "Una mail chiara con due righe sul tuo contesto è più utile di un form da venti campi. Scrivici quando vuoi."}
             </p>
-          </div>
-          <div className="space-y-10">
-            {CHANNELS.map((c) => (
-              <div key={c.label} className="border-l-2 border-[var(--color-ink)] pl-6">
-                <div className="mb-2 text-xs uppercase tracking-widest text-[var(--color-amber)]">
-                  {c.label}
+            {BOOKING_URL && (
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-10 inline-flex items-center rounded-full border border-[var(--color-ink)] px-6 py-3 text-sm font-medium text-[var(--color-ink)] transition-colors hover:bg-[var(--color-ink)] hover:text-[var(--color-bg-primary)]"
+              >
+                Prenota direttamente la call di mezz&apos;ora
+              </a>
+            )}
+            <div className="mt-14 space-y-10">
+              {CHANNELS.map((c) => (
+                <div key={c.label} className="border-l-2 border-[var(--color-ink)] pl-6">
+                  <div className="mb-2 text-xs uppercase tracking-widest text-[var(--color-amber)]">
+                    {c.label}
+                  </div>
+                  <a
+                    href={c.href}
+                    className="font-display text-2xl text-[var(--color-ink)] transition-colors hover:text-[var(--color-amber)]"
+                  >
+                    {c.value}
+                  </a>
+                  <p
+                    className="mt-2 text-sm text-[var(--color-text-secondary)] text-pretty"
+                    dangerouslySetInnerHTML={{ __html: c.note }}
+                  />
                 </div>
-                <a
-                  href={c.href}
-                  className="font-display text-2xl text-[var(--color-ink)] transition-colors hover:text-[var(--color-amber)]"
-                >
-                  {c.value}
-                </a>
-                <p
-                  className="mt-2 text-sm text-[var(--color-text-secondary)] text-pretty"
-                  dangerouslySetInnerHTML={{ __html: c.note }}
-                />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+          {HAS_FORM && (
+            <div className="md:pt-16">
+              <ContactForm />
+            </div>
+          )}
         </div>
       </Section>
 

@@ -74,7 +74,9 @@ export function Footer() {
             &copy; {new Date().getFullYear()}{" "}Solvo, brand commerciale
             di Andrea Droghetti.
           </div>
-          <div>solvo.studio</div>
+          <Link href="/privacy" className="hover:underline">
+            Informativa privacy
+          </Link>
         </div>
       </Container>
     </footer>
