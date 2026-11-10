@@ -9,8 +9,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact/grazie" },
 };
 
-const BOOKING_URL = process.env.NEXT_PUBLIC_BOOKING_URL;
-
 export default function ThankYouPage() {
   return (
     <Section>
@@ -24,21 +22,6 @@ export default function ThankYouPage() {
           Ti rispondiamo entro un giorno lavorativo, di solito prima, per fissare la
           call o per chiederti quello che ci manca.
         </p>
-        {BOOKING_URL && (
-          <div className="mt-10">
-            <p className="text-base text-[var(--color-text-secondary)] text-pretty">
-              Se preferisci, scegli già tu il momento della call.
-            </p>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center rounded-full border border-[var(--color-ink)] px-6 py-3 text-sm font-medium text-[var(--color-ink)] transition-colors hover:bg-[var(--color-ink)] hover:text-[var(--color-bg-primary)]"
-            >
-              Prenota la call di mezz&apos;ora
-            </a>
-          </div>
-        )}
         <Link
           href="/insights"
           className="mt-12 inline-flex items-center text-sm font-medium text-[var(--color-ink)] underline underline-offset-4 transition-all hover:underline-offset-2"
