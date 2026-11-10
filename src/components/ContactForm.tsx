@@ -141,7 +141,7 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          placeholder="Due righe sul contesto: cosa vendete, a chi, dove si fermano le trattative."
+          placeholder="Es. software house di 20 persone, i lead arrivano ma le trattative si fermano dopo la proposta."
           className={field}
         />
       </div>
