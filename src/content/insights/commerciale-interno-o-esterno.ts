@@ -5,7 +5,7 @@ export const article: Article = {
   title: "Commerciale interno o funzione commerciale esterna: i conti veri",
   description:
     "Quanto costa davvero un commerciale senior assunto, quanto una funzione commerciale esterna a retainer e success fee, e a quale volume di venduto conviene passare all'assunzione.",
-  date: "2026-11-10",
+  date: "2026-11-11",
   readingMinutes: 6,
   keywords: [
     "funzione commerciale esterna",
