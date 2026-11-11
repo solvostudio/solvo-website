@@ -26,6 +26,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     authors: [{ name: "Andrea Droghetti", url: "https://solvo.studio/andrea" }],
     openGraph: {
       type: "article",
+      siteName: "Solvo",
+      locale: "it_IT",
       title: a.title,
       description: a.description,
       url,
@@ -117,8 +119,18 @@ export default async function ArticlePage({ params }: Props) {
     keywords: a.keywords.join(", "),
     mainEntityOfPage: `https://solvo.studio/insights/${a.slug}`,
     image: "https://solvo.studio/og.png",
-    author: { "@id": "https://solvo.studio/#andrea" },
-    publisher: { "@id": "https://solvo.studio/#org" },
+    author: {
+      "@type": "Person",
+      "@id": "https://solvo.studio/#andrea",
+      name: "Andrea Droghetti",
+      url: "https://solvo.studio/andrea",
+    },
+    publisher: {
+      "@type": "Organization",
+      "@id": "https://solvo.studio/#org",
+      name: "Solvo",
+      logo: { "@type": "ImageObject", url: "https://solvo.studio/logo-semplice.svg" },
+    },
   };
 
   return (
@@ -178,9 +190,9 @@ export default async function ArticlePage({ params }: Props) {
             Vuoi rifare questi conti sulla tua <em>pipeline</em>?
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-[var(--color-text-secondary)] text-pretty">
-            Mezz&apos;ora di call, senza impegno. Guardiamo insieme volumi,
-            ticket e trattative aperte, e ti diciamo con franchezza se ha
-            senso lavorare insieme.
+            Scrivici volumi, ticket e trattative aperte. Ti rispondiamo entro
+            un giorno lavorativo e, se c&apos;è margine, li guardiamo insieme
+            in mezz&apos;ora di call.
           </p>
           <Link
             href="/contact"

@@ -2,16 +2,23 @@ import Link from "next/link";
 import { Eyebrow, Section } from "@/components/Section";
 import { ARTICLES, formatDate } from "@/content/insights";
 
+import { OG_BASE } from "@/lib/seo";
+
 import type { Metadata } from "next";
 
 const DESCRIPTION =
   "Note di campo su vendita B2B, closing e funzione commerciale: i conti, i metodi e gli errori che vediamo nelle trattative dei servizi.";
 
 export const metadata: Metadata = {
-  title: "Insights · Solvo",
+  title: "Insights su vendita B2B e closing · Solvo",
   description: DESCRIPTION,
   alternates: { canonical: "/insights" },
-  openGraph: { title: "Insights · Solvo", description: DESCRIPTION },
+  openGraph: {
+    ...OG_BASE,
+    url: "/insights",
+    title: "Insights su vendita B2B e closing · Solvo",
+    description: DESCRIPTION,
+  },
 };
 
 export default function InsightsPage() {

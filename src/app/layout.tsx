@@ -21,9 +21,10 @@ const inter = Inter({
   weight: ["400", "500", "600"],
 });
 
-const TITLE = "Solvo · Trasformiamo i tuoi lead in clienti";
+const TITLE = "Solvo Studio · Funzione commerciale esterna per il B2B dei servizi";
+const OG_TITLE = "Solvo · Trasformiamo i tuoi lead in clienti";
 const DESCRIPTION =
-  "Solvo è lo studio commerciale di Andrea Droghetti: siamo la funzione commerciale B2B di poche aziende alla volta, specializzati nei servizi. Portiamo le trattative a firma e presidiamo le relazioni con i clienti che contano.";
+  "Solvo è la funzione commerciale esterna (fractional sales) di poche aziende B2B dei servizi: portiamo a firma i lead che generate già e presidiamo i clienti chiave.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: TITLE,
+    title: OG_TITLE,
     description: DESCRIPTION,
     url: "https://solvo.studio",
     siteName: "Solvo",
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: TITLE,
+    title: OG_TITLE,
     description: DESCRIPTION,
     images: ["https://solvo.studio/og.png"],
   },
