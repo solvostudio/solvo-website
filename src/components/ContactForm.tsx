@@ -164,7 +164,7 @@ export function ContactForm() {
           disabled={status === "sending"}
           className="inline-flex items-center rounded-full bg-[var(--color-ink)] px-7 py-3.5 text-sm font-medium text-[var(--color-bg-primary)] transition-colors hover:bg-[var(--color-ink-deep)] disabled:opacity-60"
         >
-          {status === "sending" ? "Invio in corso…" : "Invia"}
+          {status === "sending" ? "Invio in corso…" : "Invia il messaggio"}
         </button>
         <p role="status" aria-live="polite" className="text-sm text-[var(--color-text-secondary)]">
           {status === "error" &&

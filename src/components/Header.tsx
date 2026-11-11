@@ -27,9 +27,9 @@ export function Header() {
         </nav>
         <Link
           href="/contact"
-          className="hidden rounded-full bg-[var(--color-ink)] px-5 py-2 text-sm font-medium text-[var(--color-bg-primary)] transition-colors hover:bg-[var(--color-ink-deep)] md:inline-flex"
+          className="inline-flex rounded-full bg-[var(--color-ink)] px-4 py-2 text-sm font-medium text-[var(--color-bg-primary)] transition-colors hover:bg-[var(--color-ink-deep)] md:px-5"
         >
-          Lavoriamo insieme
+          Parliamone
         </Link>
       </Container>
     </header>

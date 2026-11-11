@@ -2,26 +2,34 @@ import { ContactForm } from "@/components/ContactForm";
 import { isContactConfigured } from "@/lib/contact-config";
 import { Eyebrow, Section } from "@/components/Section";
 
+import { OG_BASE } from "@/lib/seo";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contatti · Solvo",
   description:
-    "Parliamone: una call di mezz’ora per guardare la tua pipeline e capire se ha senso lavorare insieme. Email e LinkedIn.",
+    "Raccontaci in due righe cosa vendete e dove si fermano le trattative: ti rispondiamo entro un giorno lavorativo per fissare una call di mezz'ora.",
   alternates: { canonical: "/contact" },
   openGraph: {
+    ...OG_BASE,
+    url: "/contact",
     title: "Contatti · Solvo",
     description:
-      "Parliamone: una call di mezz’ora per guardare la tua pipeline e capire se ha senso lavorare insieme. Email e LinkedIn.",
+      "Raccontaci in due righe cosa vendete e dove si fermano le trattative: ti rispondiamo entro un giorno lavorativo per fissare una call di mezz'ora.",
   },
 };
+
+const HAS_FORM = isContactConfigured();
 
 const CHANNELS = [
   {
     label: "Email",
     value: "andrea@solvo.studio",
     href: "mailto:andrea@solvo.studio",
-    note: "La via più diretta. Rispondiamo entro 24h nei giorni lavorativi.",
+    note: HAS_FORM
+      ? "In alternativa al form. Rispondiamo entro un giorno lavorativo."
+      : "La via più diretta. Rispondiamo entro un giorno lavorativo.",
   },
   {
     label: "LinkedIn",
@@ -30,8 +38,6 @@ const CHANNELS = [
     note: "Per restare in contatto senza un&apos;esigenza specifica.",
   },
 ];
-
-const HAS_FORM = isContactConfigured();
 
 export default function ContactPage() {
   return (
@@ -48,7 +54,14 @@ export default function ContactPage() {
                 ? "Due righe sul tuo contesto bastano: cosa vendete, a chi, dove si fermano le trattative. Ti rispondiamo noi per fissare la call."
                 : "Una mail chiara con due righe sul tuo contesto è più utile di un form da venti campi. Scrivici quando vuoi."}
             </p>
-            <div className="mt-14 space-y-10">
+          </div>
+          {HAS_FORM && (
+            <div className="md:row-span-2 md:pt-16">
+              <ContactForm />
+            </div>
+          )}
+          <div className="md:col-start-1">
+            <div className="space-y-10">
               {CHANNELS.map((c) => (
                 <div key={c.label} className="border-l-2 border-[var(--color-ink)] pl-6">
                   <div className="mb-2 text-xs uppercase tracking-widest text-[var(--color-amber)]">
@@ -68,11 +81,6 @@ export default function ContactPage() {
               ))}
             </div>
           </div>
-          {HAS_FORM && (
-            <div className="md:pt-16">
-              <ContactForm />
-            </div>
-          )}
         </div>
       </Section>
 
