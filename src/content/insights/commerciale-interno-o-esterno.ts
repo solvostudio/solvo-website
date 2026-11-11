@@ -55,7 +55,7 @@ export const article: Article = {
     { type: "h2", text: "Quanto costa una funzione commerciale esterna" },
     {
       type: "p",
-      html: "Una funzione commerciale esterna, quella che nel mondo anglosassone si chiama <em>fractional sales</em>, ribalta la struttura del costo. Nel nostro caso: un <strong>retainer di 2.000 euro al mese</strong>, che copre il presidio commerciale continuativo, più una <strong>success fee del 10%</strong> sui contratti firmati da lead dell'azienda, o del <strong>15%</strong> quando l'opportunità nasce dal nostro network.",
+      html: "Una funzione commerciale esterna, quella che nel mondo anglosassone si chiama <em>fractional sales</em>, ribalta la struttura del costo. Nel <a href='/services' class='underline underline-offset-4'>nostro caso</a>: un <strong>retainer di 2.000 euro al mese</strong>, che copre il presidio commerciale continuativo, più una <strong>success fee del 10%</strong> sui contratti firmati da lead dell'azienda, o del <strong>15%</strong> quando l'opportunità nasce dal nostro network.",
     },
     {
       type: "p",
@@ -81,6 +81,10 @@ export const article: Article = {
     {
       type: "p",
       html: "Sotto i 700-800.000 euro di venduto all'anno, la funzione esterna costa meno. Sopra, assumere diventa più conveniente. Quando la maggior parte dei contratti nasce dal nostro network e la fee sale al 15%, il pareggio scende intorno ai 500.000 euro: è il prezzo del lavoro di sviluppo in più, e conviene saperlo prima.",
+    },
+    {
+      type: "p",
+      html: "Un limite che va detto: una funzione esterna a retainer segue poche trattative alla volta, non un portafoglio da agente. Se per arrivare a quel venduto servono decine di trattative aperte in parallelo, il limite operativo arriva prima del pareggio economico, ed è il momento di affiancare o assumere.",
     },
     {
       type: "callout",

@@ -31,8 +31,8 @@ export default function PrivacyPage() {
           </p>
           <h2>Cosa raccogliamo dal form</h2>
           <p className="text-pretty">
-            Nome, email, azienda se la indichi, il messaggio e come ci hai
-            conosciuto. Li usiamo solo per rispondere alla tua richiesta e
+            Nome, email, azienda e valore medio dei contratti se li indichi, il
+            messaggio e come ci hai conosciuto. Li usiamo solo per rispondere alla tua richiesta e
             per valutare un&apos;eventuale collaborazione: la base giuridica
             sono le misure precontrattuali richieste da te (art. 6.1.b GDPR).
             Non li usiamo per newsletter né li cediamo a terzi.
