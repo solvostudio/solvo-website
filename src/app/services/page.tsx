@@ -2,17 +2,21 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Eyebrow, Section } from "@/components/Section";
 
+import { OG_BASE } from "@/lib/seo";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Servizi e tariffe · Solvo",
+  title: "Funzione commerciale esterna: servizi e tariffe · Solvo",
   description:
-    "Cinque modalità di ingaggio: closing, sales ownership, account e upsell, referral, consulenza. Retainer 2.000€/mese, success fee dal 10% al 15%, tariffe orarie 90€ e 140€.",
+    "Funzione commerciale esterna (fractional sales) a prezzi chiari: retainer 2.000€/mese e success fee dal 10% al 15% sui contratti firmati. Cinque modalità, condizioni e FAQ.",
   alternates: { canonical: "/services" },
   openGraph: {
-    title: "Servizi e tariffe · Solvo",
+    ...OG_BASE,
+    url: "/services",
+    title: "Funzione commerciale esterna: servizi e tariffe · Solvo",
     description:
-      "Cinque modalità di ingaggio: closing, sales ownership, account e upsell, referral, consulenza. Retainer 2.000€/mese, success fee dal 10% al 15%, tariffe orarie 90€ e 140€.",
+      "Funzione commerciale esterna (fractional sales) a prezzi chiari: retainer 2.000€/mese e success fee dal 10% al 15% sui contratti firmati. Cinque modalità, condizioni e FAQ.",
   },
 };
 
@@ -56,11 +60,11 @@ const SERVICES = [
   {
     title: "Consulenza senza mandato",
     bullets: [
-      "140€/ora o a progetto",
+      "150€/ora o a progetto",
       "Nessuna success fee",
-      "Finanza, tecnologia, processi",
+      "Processo, pricing, tecnologia",
     ],
-    body: "Advisory pura, quando non c&apos;è una componente commerciale da presidiare. Setup finanziari, finanza agevolata, scelte di stack e automazione, riorganizzazione di processi.",
+    body: "Advisory pura, quando non c&apos;è una componente commerciale da presidiare: processo commerciale, pricing e proposte, scelte di stack e automazione.",
   },
 ];
 
@@ -93,9 +97,66 @@ const PRICING = [
     mode: "Consulenza senza mandato",
     fixed: "a progetto",
     variable: "nessuna",
-    hourly: "140€/ora",
+    hourly: "150€/ora",
   },
 ];
+
+
+// Domande vere dei buyer, emerse nelle call. Stesse frasi nel JSON-LD
+// FAQPage: Google oggi mostra poco i rich result FAQ, ma il markup resta
+// utile agli assistenti AI che leggono la pagina.
+const FAQ = [
+  {
+    q: "Che differenza c'è rispetto ad assumere un commerciale?",
+    a: "Un commerciale senior interno costa per intero anche nei mesi in cui non chiude, e prima di rendere ha bisogno di mesi di inserimento. Con noi il fisso è circa un quarto di quello di un assunto e copre il presidio, il resto del compenso arriva solo con i contratti firmati, e partiamo dalla pipeline che hai già. Ha senso finché il volume non giustifica una persona a tempo pieno, e quando arriva quel momento, il passaggio di consegne è già scritto nella pipeline.",
+  },
+  {
+    q: "Il retainer corrisponde a un monte ore?",
+    a: "No. È il costo del presidio commerciale continuativo: le ore sono indicative e si adattano alla fase della trattativa. Le attività fuori dal perimetro commerciale si concordano prima, per iscritto, a 90€/ora.",
+  },
+  {
+    q: "Generate anche i lead?",
+    a: "No, il nostro mestiere è portare a firma i lead che la tua azienda genera già. Quando un'opportunità nasce dal nostro network la seguiamo dall'introduzione alla firma, ed è la modalità sales ownership con success fee al 15%.",
+  },
+  {
+    q: "Su cosa si calcola la success fee e quando si paga?",
+    a: "Sul valore del contratto firmato, al netto delle voci riaddebitate senza margine come hosting, licenze e provider. Matura alla firma e si paga quando il cliente ha pagato te.",
+  },
+  {
+    q: "Con che tipo di aziende lavorate?",
+    a: "B2B dei servizi: software house, consulenza, eventi corporate, finanza. Aziende con un flusso di lead già attivo, ticket dai 10.000€ in su e un decisore founder o C-level. Lavoriamo con poche aziende alla volta, per scelta.",
+  },
+  {
+    q: "Quanto dura l'impegno?",
+    a: "Sui mandati a retainer il rapporto è a tempo indeterminato, con un preavviso di recesso uguale per entrambe le parti e scritto nel contratto. Nessun vincolo pluriennale: restiamo finché i contratti firmati giustificano il costo.",
+  },
+  {
+    q: "Chi segue le trattative, in concreto?",
+    a: "Andrea Droghetti, in prima persona, su ogni trattativa. Quando serve una competenza specifica, fiscale, legale o tecnica, attiviamo un professionista del nostro network, sempre concordato prima con te.",
+  },
+  {
+    q: "Lavorate anche con nostri concorrenti?",
+    a: "Lo verifichiamo prima di partire: non seguiamo due aziende che vendono la stessa cosa allo stesso tipo di cliente. La riservatezza è scritta nel contratto.",
+  },
+  {
+    q: "In quanto tempo arrivano i primi contratti?",
+    a: "Dipende dal ciclo di vendita. Sulle trattative già aperte, dalla presa in carico alla firma passano di solito dalle 4 alle 8 settimane. Il primo mese serve anche a entrare nel prodotto, nei numeri e nella pipeline.",
+  },
+  {
+    q: "Che differenza c'è con un direttore commerciale part-time o un temporary manager?",
+    a: "Un direttore commerciale part-time o un temporary manager costruisce e guida l'organizzazione di vendita. Noi lavoriamo un passo più vicino al contratto: prendiamo in carico le trattative e le portiamo a firma, con un compenso legato a quello che si firma.",
+  },
+];
+
+const FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 
 export default function ServicesPage() {
   return (
@@ -108,9 +169,11 @@ export default function ServicesPage() {
           <em>Cinque modi</em> di ingaggiarlo.
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--color-text-secondary)] text-pretty md:text-xl">
-          Solvo non vende ore, vende contratti firmati. La struttura economica
-          è costruita perché guadagniamo davvero solo quando guadagni tu: un
-          fisso che copre il presidio, e la parte grossa legata al risultato.
+          Siamo una funzione commerciale esterna, quella che nel mondo
+          anglosassone si chiama <em>fractional sales</em>. Non vendiamo ore,
+          vendiamo contratti firmati. La struttura economica lega il nostro
+          compenso al tuo risultato: un fisso contenuto che copre il presidio,
+          e una success fee su ogni contratto firmato.
         </p>
       </Section>
 
@@ -247,7 +310,7 @@ export default function ServicesPage() {
               tariffano a <strong>90€/ora</strong>. La{" "}
               <strong>consulenza senza mandato commerciale</strong>, che non
               prevede alcuna componente variabile, è a{" "}
-              <strong>140€/ora</strong> o a progetto.
+              <strong>150€/ora</strong> o a progetto.
             </p>
             <p className="text-pretty">
               Il modello funziona sopra una certa soglia: sotto i{" "}
@@ -260,10 +323,59 @@ export default function ServicesPage() {
                 href="/contact"
                 className="inline-flex items-center text-sm font-medium text-[var(--color-ink)] underline underline-offset-4 transition-all hover:underline-offset-2"
               >
-                Richiedi un preventivo →
+                Parliamone →
               </Link>
             </div>
           </div>
+        </div>
+      </Section>
+      <Section tone="subtle">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
+        />
+        <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
+          <div>
+            <Eyebrow>Domande frequenti</Eyebrow>
+            <h2 className="font-display text-3xl leading-tight tracking-tight text-balance md:text-4xl">
+              Quello che ci chiedono prima di partire<span className="dot">.</span>
+            </h2>
+          </div>
+          <div className="divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
+            {FAQ.map((f) => (
+              <details key={f.q} className="group py-6">
+                <summary className="flex cursor-pointer list-none items-start justify-between gap-6 font-display text-xl text-[var(--color-ink)] [&::-webkit-details-marker]:hidden">
+                  <h3 className="text-xl font-normal leading-snug">{f.q}</h3>
+                  <span
+                    aria-hidden="true"
+                    className="mt-1 shrink-0 text-[var(--color-amber)] transition-transform group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="mt-4 text-[var(--color-text-secondary)] text-pretty">
+                  {f.a}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+        <div className="mt-16 flex flex-col items-start gap-6 border-t border-[var(--color-border)] pt-10 md:flex-row md:items-center md:justify-between">
+          <p className="max-w-xl text-[var(--color-text-secondary)] text-pretty">
+            I conti completi, assunzione contro funzione esterna:{" "}
+            <Link
+              href="/insights/commerciale-interno-o-funzione-commerciale-esterna"
+              className="text-[var(--color-ink)] underline underline-offset-4 transition-all hover:underline-offset-2"
+            >
+              Commerciale interno o funzione commerciale esterna →
+            </Link>
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex shrink-0 items-center rounded-full bg-[var(--color-ink)] px-7 py-3.5 text-sm font-medium text-[var(--color-bg-primary)] transition-colors hover:bg-[var(--color-ink-deep)]"
+          >
+            Parliamone
+          </Link>
         </div>
       </Section>
     </>

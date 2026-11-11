@@ -11,8 +11,9 @@ export function Footer() {
               Solvo<span className="dot">.</span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-[var(--color-bg-primary)]/70">
-              La funzione commerciale di poche aziende alla volta. Trasformo
-              i lead in clienti e tengo vive le relazioni che contano.
+              La funzione commerciale di poche aziende alla volta.
+              Trasformiamo i lead in clienti e teniamo vive le relazioni che
+              contano.
             </p>
           </div>
 
@@ -73,7 +74,9 @@ export function Footer() {
             &copy; {new Date().getFullYear()}{" "}Solvo, brand commerciale
             di Andrea Droghetti.
           </div>
-          <div>solvo.studio</div>
+          <Link href="/privacy" className="hover:underline">
+            Informativa privacy
+          </Link>
         </div>
       </Container>
     </footer>

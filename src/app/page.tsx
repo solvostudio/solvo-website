@@ -32,7 +32,7 @@ const NUMBERS = [
   },
   {
     value: "+15%",
-    label: "valore del deal tra prima proposta e firma",
+    label: "valore guadagnato in negoziazione, sui deal con più round di proposta",
   },
   {
     value: "< 2 sett.",
@@ -60,7 +60,7 @@ const MODES = [
     title: "Closing",
     price: "2.000€/mese",
     fee: "+ 10% success fee",
-    body: "La forma principale. Retainer mensile di presidio più success fee sui contratti che si firmano. Il grosso del nostro guadagno arriva quando arriva il tuo.",
+    body: "La forma principale. Retainer mensile di presidio più success fee sui contratti che si firmano. La success fee lega il nostro guadagno ai contratti che firmi.",
   },
   {
     title: "Sales ownership",
@@ -76,7 +76,7 @@ const MODES = [
   },
   {
     title: "Consulenza senza mandato",
-    price: "140€/ora",
+    price: "150€/ora",
     fee: "nessuna success fee",
     body: "Advisory su finanza, tecnologia e processi quando non c'è una componente commerciale da presidiare.",
   },
@@ -118,7 +118,7 @@ export default function Home() {
             in <em>clienti</em><span className="dot">.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--color-text-secondary)] text-pretty md:text-xl">
-            Siamo la funzione commerciale B2B di poche aziende in cui crediamo.
+            Siamo la funzione commerciale esterna di poche aziende B2B in cui crediamo.
             Due cose, fatte bene: portare le trattative a firma e tenere le
             relazioni con i clienti che contano.
           </p>
@@ -261,6 +261,10 @@ export default function Home() {
             <h2 className="font-display text-3xl leading-tight tracking-tight text-balance md:text-4xl">
               Come ci si ingaggia<span className="dot">.</span>
             </h2>
+            <p className="mt-6 text-[var(--color-text-secondary)] text-pretty">
+              Le modalità principali. Tutte e cinque, con le condizioni nel
+              dettaglio, sono nella pagina Servizi.
+            </p>
           </div>
           <div className="space-y-8">
             {MODES.map((m) => (
@@ -315,15 +319,15 @@ export default function Home() {
             Hai lead che si <em>fermano</em> prima della firma?
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-[var(--color-text-secondary)] text-pretty">
-            Mezz&apos;ora di call, senza listino. Guardiamo la tua pipeline e
-            decidiamo insieme se c&apos;è una conversazione che vale la pena
-            fare.
+            Scrivici due righe sulla tua pipeline. Ti rispondiamo entro un
+            giorno lavorativo e, se c&apos;è margine, fissiamo mezz&apos;ora di
+            call.
           </p>
           <Link
             href="/contact"
             className="mt-10 inline-flex items-center rounded-full bg-[var(--color-ink)] px-7 py-3.5 text-sm font-medium text-[var(--color-bg-primary)] transition-colors hover:bg-[var(--color-ink-deep)]"
           >
-            Scrivici
+            Parliamone
           </Link>
         </div>
       </Section>

@@ -3,15 +3,19 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Eyebrow, Section } from "@/components/Section";
 
+import { OG_BASE } from "@/lib/seo";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Andrea Droghetti · Solvo",
+  title: "Andrea Droghetti, founder di Solvo e SMACE",
   description:
     "Founder di SMACE, Forbes Under 30 Italia 2023. In attività dal 2019 tra Capgemini e imprenditoria: percorso, track record e approccio dietro Solvo.",
   alternates: { canonical: "/andrea" },
   openGraph: {
-    title: "Andrea Droghetti · Solvo",
+    ...OG_BASE,
+    url: "/andrea",
+    title: "Andrea Droghetti, founder di Solvo e SMACE",
     description:
       "Founder di SMACE, Forbes Under 30 Italia 2023. In attività dal 2019 tra Capgemini e imprenditoria: percorso, track record e approccio dietro Solvo.",
   },
@@ -175,13 +179,14 @@ export default function AndreaPage() {
             Vediamoci<span className="dot">.</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-[var(--color-bg-primary)]/70 text-pretty">
-            Mezz&apos;ora di call per capire se ha senso lavorare insieme.
+            Due righe sul tuo contesto, poi mezz&apos;ora di call per capire se
+            ha senso lavorare insieme.
           </p>
           <Link
             href="/contact"
-            className="mt-10 inline-flex items-center rounded-full bg-[var(--color-amber)] px-7 py-3.5 text-sm font-medium text-[var(--color-ink)] transition-colors hover:bg-[var(--color-amber)]/90"
+            className="mt-10 inline-flex items-center rounded-full bg-[var(--color-bg-primary)] px-7 py-3.5 text-sm font-medium text-[var(--color-ink)] transition-colors hover:bg-[var(--color-bg-subtle)]"
           >
-            Scrivici
+            Parliamone
           </Link>
         </div>
       </Section>
