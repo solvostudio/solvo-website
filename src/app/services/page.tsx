@@ -60,7 +60,7 @@ const SERVICES = [
   {
     title: "Consulenza senza mandato",
     bullets: [
-      "140€/ora o a progetto",
+      "150€/ora o a progetto",
       "Nessuna success fee",
       "Processo, pricing, tecnologia",
     ],
@@ -97,7 +97,7 @@ const PRICING = [
     mode: "Consulenza senza mandato",
     fixed: "a progetto",
     variable: "nessuna",
-    hourly: "140€/ora",
+    hourly: "150€/ora",
   },
 ];
 
@@ -310,7 +310,7 @@ export default function ServicesPage() {
               tariffano a <strong>90€/ora</strong>. La{" "}
               <strong>consulenza senza mandato commerciale</strong>, che non
               prevede alcuna componente variabile, è a{" "}
-              <strong>140€/ora</strong> o a progetto.
+              <strong>150€/ora</strong> o a progetto.
             </p>
             <p className="text-pretty">
               Il modello funziona sopra una certa soglia: sotto i{" "}

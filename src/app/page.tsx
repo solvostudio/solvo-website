@@ -76,7 +76,7 @@ const MODES = [
   },
   {
     title: "Consulenza senza mandato",
-    price: "140€/ora",
+    price: "150€/ora",
     fee: "nessuna success fee",
     body: "Advisory su finanza, tecnologia e processi quando non c'è una componente commerciale da presidiare.",
   },
@@ -89,7 +89,7 @@ const CLIENTS = [
   },
   {
     name: "Startax",
-    role: "Consulenza fiscale e finanza agevolata. Partner a cui segnaliamo clienti e opportunità.",
+    role: "Consulenza fiscale e finanza agevolata. Vendite, operations e bandi.",
   },
   {
     name: "SMACE",
