@@ -122,8 +122,10 @@ async function createNotionRow(lead: Lead, when: string): Promise<string> {
   if (!res.ok) {
     throw new Error(`Notion ${res.status}: ${(await res.text()).slice(0, 300)}`);
   }
-  const page = (await res.json()) as { url?: string };
-  return page.url ?? "";
+  // Con un'integrazione di solo inserimento Notion risponde senza `url`:
+  // il link si ricava dall'id della pagina creata.
+  const page = (await res.json()) as { id?: string; url?: string };
+  return page.url ?? (page.id ? `https://www.notion.so/${page.id.replace(/-/g, "")}` : "creata");
 }
 
 async function sendNotification(
