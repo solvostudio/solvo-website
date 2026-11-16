@@ -121,7 +121,12 @@ async function createNotionRow(lead: Lead, when: string): Promise<string> {
   return page.url ?? "";
 }
 
-async function sendNotification(lead: Lead, when: string, notionUrl: string) {
+async function sendNotification(
+  lead: Lead,
+  when: string,
+  notionUrl: string,
+  notionError: string,
+) {
   const user = process.env.SMTP_USER as string;
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -144,7 +149,7 @@ async function sendNotification(lead: Lead, when: string, notionUrl: string) {
     "",
     notionUrl
       ? `Riga su Notion: ${notionUrl}`
-      : "Riga su Notion: non creata (vedi i log di Vercel).",
+      : `Riga su Notion: non creata. Motivo: ${notionError || "sconosciuto"}`,
     "",
     "Rispondi a questa mail per scrivere direttamente al contatto.",
   ].join("\n");
@@ -203,19 +208,21 @@ export async function POST(req: Request) {
 
   let notionUrl = "";
   let notionOk = false;
+  let notionError = "integrazione Notion non configurata (env mancanti)";
   if (notionConfigured()) {
     try {
       notionUrl = await createNotionRow(lead, when);
       notionOk = true;
     } catch (err) {
       console.error("[contact] Notion non riuscito", err);
+      notionError = err instanceof Error ? err.message : String(err);
     }
   }
 
   let mailOk = false;
   if (smtpConfigured()) {
     try {
-      await sendNotification(lead, when, notionUrl);
+      await sendNotification(lead, when, notionUrl, notionError);
       mailOk = true;
     } catch (err) {
       console.error("[contact] Mail non riuscita", err);

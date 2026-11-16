@@ -127,6 +127,10 @@ const FAQ = [
     a: "B2B dei servizi: software house, consulenza, eventi corporate, finanza. Aziende con un flusso di lead già attivo, ticket dai 10.000€ in su e un decisore founder o C-level. Lavoriamo con poche aziende alla volta, per scelta.",
   },
   {
+    q: "Trovate clienti per freelance e agenzie?",
+    a: "No. Non facciamo procacciamento di commesse per chi cerca nuovi clienti per i propri servizi: entriamo nella funzione commerciale di un'azienda che ha già un flusso di lead, una struttura che eroga e contratti dai 10.000€ in su. Per un professionista singolo o una piccola agenzia il modello raramente torna nei conti.",
+  },
+  {
     q: "Quanto dura l'impegno?",
     a: "Sui mandati a retainer il rapporto è a tempo indeterminato, con un preavviso di recesso uguale per entrambe le parti e scritto nel contratto. Nessun vincolo pluriennale: restiamo finché i contratti firmati giustificano il costo.",
   },
