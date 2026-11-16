@@ -1,6 +1,11 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
-import { notionConfigured, smtpConfigured } from "@/lib/contact-config";
+import {
+  NOTION_LEADS_DB_ID,
+  missingNotionEnv,
+  notionConfigured,
+  smtpConfigured,
+} from "@/lib/contact-config";
 
 // Backend del form contatti: nessun servizio terzo, solo gli strumenti che
 // Solvo usa già. Ogni invio diventa (1) una riga nel DB Notion "Pipeline
@@ -76,12 +81,12 @@ async function createNotionRow(lead: Lead, when: string): Promise<string> {
   const res = await fetch("https://api.notion.com/v1/pages", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.NOTION_SITE_TOKEN}`,
+      Authorization: `Bearer ${process.env.NOTION_SITE_TOKEN?.trim()}`,
       "Notion-Version": NOTION_VERSION,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      parent: { database_id: process.env.NOTION_LEADS_DB_ID },
+      parent: { database_id: NOTION_LEADS_DB_ID },
       properties: {
         Azienda: { title: [{ text: { content: title } }] },
         Referente: { rich_text: [{ text: { content: lead.name } }] },
@@ -208,11 +213,12 @@ export async function POST(req: Request) {
 
   let notionUrl = "";
   let notionOk = false;
-  let notionError = "integrazione Notion non configurata (env mancanti)";
+  let notionError = `integrazione Notion non configurata (${missingNotionEnv()})`;
   if (notionConfigured()) {
     try {
       notionUrl = await createNotionRow(lead, when);
       notionOk = true;
+      notionError = "";
     } catch (err) {
       console.error("[contact] Notion non riuscito", err);
       notionError = err instanceof Error ? err.message : String(err);
